@@ -1,2 +1,0 @@
-class AddValue < ApplicationRecord
-end
