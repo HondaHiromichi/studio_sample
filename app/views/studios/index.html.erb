@@ -1,0 +1,16 @@
+<h1>index</h1>
+  <td><%= link_to 'new', new_studio_path %></td>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+    </tr>
+  </thead>
+    <% @studios.each do |studio| %>
+      <tr>
+        <th><%= link_to studio.name, edit_studio_path(studio) %></th>
+        <td><%= link_to 'Show', studio %></td>
+        <td><%= link_to 'delete', studio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+</table>

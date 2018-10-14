@@ -31,7 +31,8 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
-  validates :account_name, presence: true, uniqueness: true
+  has_many :studios
+  validates :account_name, presence: true, uniqueness: true, length: { minimum: 1 }
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
