@@ -3,13 +3,16 @@
 <table>
   <thead>
     <tr>
+      <th>id</th>
       <th>name</th>
+      <th>update</th>
     </tr>
   </thead>
     <% @studios.each do |studio| %>
       <tr>
+        <td><%= studio.id %></td>
         <th><%= link_to studio.name, edit_studio_path(studio) %></th>
-        <td><%= link_to 'Show', studio %></td>
+        <td><%= studio.updated_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
         <td><%= link_to 'delete', studio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
