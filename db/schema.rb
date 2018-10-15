@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_052122) do
+ActiveRecord::Schema.define(version: 2018_10_15_071337) do
 
   create_table "features", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2018_10_15_052122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.boolean "post_flag", default: false, null: false
     t.index ["user_id"], name: "index_studios_on_user_id"
   end
 
