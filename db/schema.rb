@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_154914) do
+ActiveRecord::Schema.define(version: 2018_10_15_052122) do
 
   create_table "features", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_154914) do
 
   create_table "studios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "phone", null: false
+    t.string "phone", null: false
     t.string "area"
     t.string "station"
     t.text "information"
