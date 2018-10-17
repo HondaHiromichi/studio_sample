@@ -1,17 +1,19 @@
 <h1>index</h1>
   <td><%= link_to 'new', new_studio_path %></td>
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>id</th>
-      <th>name</th>
-      <th>update</th>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">post situation</th>
+      <th scope="col">update</th>
     </tr>
   </thead>
     <% @studios.each do |studio| %>
       <tr>
         <td><%= studio.id %></td>
-        <th><%= link_to studio.name, edit_studio_path(studio) %></th>
+        <td><%= link_to studio.name, edit_studio_path(studio) %></td>
+        <td><%=  studio.post_flag == true ? "非公開" : "公開" %></td>
         <td><%= studio.updated_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
         <td><%= link_to 'delete', studio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
