@@ -13,7 +13,7 @@
       <tr>
         <td><%= studio.id %></td>
         <td><%= link_to studio.name, edit_studio_path(studio) %></td>
-        <td><%=  studio.post_flag == true ? "非公開" : "公開" %></td>
+        <td><%=  studio.post_flag == true ? "" : "掲載中" %></td>
         <td><%= studio.updated_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
         <td><%= link_to 'delete', studio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

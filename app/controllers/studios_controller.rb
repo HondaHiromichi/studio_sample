@@ -11,6 +11,7 @@ class StudiosController < ApplicationController
 
   def new
     @studio = Studio.new
+    @studio.images.build
   end
 
   def edit
@@ -45,7 +46,9 @@ class StudiosController < ApplicationController
 
   def studio_params
     params.require(:studio).permit(:name, :phone, :area, :station, :information, :lowest_price, :price,
-    :business_hours, :room, :url, :address, :sorroundings, :etc, :post_flag)
+    :business_hours, :room, :url, :address, :sorroundings, :etc, :post_flag,
+    images_attributes: [:id, :studio_id, :sequence, :image_file_name, :image_content_type, :image_file_size, :image]
+    )
   end
 
 

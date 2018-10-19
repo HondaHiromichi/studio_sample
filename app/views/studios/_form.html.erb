@@ -27,6 +27,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :image %><br />
+    <%= form.fields_for :images do |images| %>
+      <%= images.file_field :image %>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= form.label :information %>
     <%= form.text_field :information %>
   </div>

@@ -22,5 +22,8 @@
 
 class Studio < ApplicationRecord
   belongs_to :user
+  has_many :images
+  accepts_nested_attributes_for :images
   validates :user_id, presence: true
+  # validates :image_content_type, acceptance: true
 end
