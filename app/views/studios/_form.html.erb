@@ -28,8 +28,10 @@
 
   <div class="field">
     <%= form.label :image %><br />
-    <%= form.fields_for :images do |images| %>
-      <%= images.file_field :image %>
+    <% 4.times do %>
+    <%= form.fields_for :images do |image| %>
+    <%= image.file_field :image %>
+    <% end %>
     <% end %>
   </div>
 
@@ -66,6 +68,15 @@
   <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <% Feature.features.map do |k, v| %>
+      <%= form.fields_for :features do |features| %>
+        <%= features.label :feature, k %>
+        <%= features.check_box :feature,{:checked=>false}, k ,false %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="field">

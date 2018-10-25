@@ -23,7 +23,9 @@
 class Studio < ApplicationRecord
   belongs_to :user
   has_many :images
+  has_many :features, dependent: :destroy
   accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :features
   validates :user_id, presence: true
   # validates :image_content_type, acceptance: true
 end
