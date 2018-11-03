@@ -1,0 +1,28 @@
+ja:
+  enums:
+    feature:
+      feature:
+        rec: レコーディング可
+        near: 徒歩5分以内
+        parking: 駐車場あり
+        rental: レンタルあり
+        pack: パック料金あり
+        web: Web予約可
+        convenience: コンビニあり
+        restaurant: 飲食店あり
+        break: 休憩スペースあり
+        smoking: スタジオ内喫煙可
+        eating: スタジオ内飲食可
+        piano: 生ピアノあり
+        live: スタジオライブ可
+
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        account_name: 名前
+        email: Eメール
+        password: パスワード
+        email_or_account_name: Eメール or 名前
+        password_confirmation: パスワード再確認

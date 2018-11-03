@@ -43,6 +43,12 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'pry-coolline'
 end
 
 group :development do

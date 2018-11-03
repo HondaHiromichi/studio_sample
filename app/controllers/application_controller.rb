@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
     raise SecurityError unless current_user.try(:admin?)
   end
 
+  def authenticate_manager_user!
+    unless current_user.manager?
+      flash[:error] = "スタジオ管理画面へのアクセス権限がありません。"
+      redirect_to root_url
+    end
+  end
+
   def configure_permitted_parameters
     added_attrs = [:account_name, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :phone, :role]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
