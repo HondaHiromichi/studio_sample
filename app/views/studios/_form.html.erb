@@ -1,0 +1,150 @@
+<%= form_with(model: studio, local: true) do |form| %>
+  <% if studio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(studio.errors.count, "error") %> prohibited this studio from being saved:</h2>
+
+      <ul>
+      <% studio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :post_flag %>
+    <%= form.check_box :post_flag %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+<script>
+
+$(document).ready(function () {
+  $(".file").on('change', function(){
+    var fileprop = $(this).prop('files')[0],
+        find_img = $(this).parent().find('img'),
+        filereader = new FileReader(),
+        view_box = $(this).parent('.field');
+    
+    if(find_img.length){
+      find_img.nextAll().remove();
+      find_img.remove();
+    }
+    
+    var img = '<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">画像を削除する</a></p></div>';
+    
+    view_box.append(img);
+
+    filereader.onload = function() {
+      view_box.find('img').attr('src', filereader.result);
+      img_del(view_box);
+    }
+    filereader.readAsDataURL(fileprop);
+  });
+  
+  function img_del(target){
+    target.find("a.img_del").on('click',function(){
+      var self = $(this),
+          parentBox = self.parent().parent().parent();
+      if(window.confirm('画像を削除します。\nよろしいですか？')){
+        setTimeout(function(){
+          parentBox.find('input[type=file]').val('');
+          parentBox.find('.img_view').remove();
+        } , 0);            
+      }
+      return false;
+    });
+  }  
+    
+});
+
+</script>
+
+  
+  
+    <%= form.label :image %>
+    <% 4.times do %>
+    <div class="field">
+    <%= form.fields_for :images do |image| %>
+    <%= image.file_field :image, class: "file" %>
+    <% end %>
+    </div>
+    <% end %>
+
+  <div class="field">
+    <%= form.label :information %>
+    <%= form.text_field :information %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :station %>
+    <%= form.text_field :station %>
+  </div>
+
+  <div class="field">
+    <%= form.label :business_hours %>
+    <%= form.text_field :business_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room %>
+    <%= form.text_field :room %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lowest_price %>
+    <%= form.text_field :lowest_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <% Feature.features_i18n.map do |k, v| %>
+      <%= form.fields_for :features do |features| %>
+        <%= features.check_box :feature, {:checked=>false}, k, false %>
+        <%= features.label :feature, v %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sorroundings %>
+    <%= form.text_field :sorroundings %>
+  </div>
+
+  <div class="field">
+    <%= form.label :etc %>
+    <%= form.text_field :etc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '登録', data: { confirm: 'スタジオを登録しますか？' } %>
+  </div>
+<% end %>

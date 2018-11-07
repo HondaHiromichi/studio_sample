@@ -10,22 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_141241) do
+ActiveRecord::Schema.define(version: 2018_10_31_123638) do
+
+  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "title"
+    t.text "body"
+    t.integer "status"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "features", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "studio_id"
     t.integer "feature"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_features_on_user_id"
+    t.index ["studio_id"], name: "index_features_on_studio_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "studio_id"
-    t.text "path"
     t.integer "sequence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["studio_id"], name: "index_images_on_studio_id"
   end
 
@@ -41,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_141241) do
 
   create_table "studios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "phone", null: false
+    t.string "phone", null: false
     t.string "area"
     t.string "station"
     t.text "information"
@@ -55,6 +67,9 @@ ActiveRecord::Schema.define(version: 2018_10_13_141241) do
     t.text "etc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.boolean "post_flag", default: false, null: false
+    t.index ["user_id"], name: "index_studios_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
