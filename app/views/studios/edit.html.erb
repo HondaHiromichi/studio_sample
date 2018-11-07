@@ -74,10 +74,14 @@ $(document).ready(function () {
   
     <%= form.label :image %>
     <%= form.fields_for :images do |i| %>
+      <%= form.file_field :images, class: "file", name: "studio[images_attributes][0][image]" %>
       <%= image_tag i.object.image.url %>
+
       <%= i.check_box :_destroy %>
       <%= i.label :_destroy, "削除" %>
     <% end %>
+
+
   <div class="field">
     <%= form.file_field :images, class: "file", name: "studio[images_attributes][0][image]" %>
   </div>
@@ -126,34 +130,98 @@ $(document).ready(function () {
     <%= form.text_field :price %>
   </div>
 
-  
+
   <div class="field">
 
-  <input type="checkbox" value="rec" name="studio[features_attributes][0][feature]" id="studio_features_attributes_0_feature" >
-    <label for="studio_features_attributes_0_feature">レコーディング可 </label>
-  <input type="checkbox" value="near" name="studio[features_attributes][1][feature]" id="studio_features_attributes_1_feature">
+  <% if @studio.features.pluck(:feature).include?("rec") %>
+    <input type="checkbox" value="rec" name="studio[features_attributes][0][feature]" id="studio_features_attributes_0_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="rec" name="studio[features_attributes][0][feature]" id="studio_features_attributes_0_feature" >
+  <% end %>
+    <label for="studio_features_attributes_0_feature">レコーディング可</label>
+  
+  <% if @studio.features.pluck(:feature).include?("near") %>
+    <input type="checkbox" value="near" name="studio[features_attributes][1][feature]" id="studio_features_attributes_1_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="near" name="studio[features_attributes][1][feature]" id="studio_features_attributes_1_feature" >
+  <% end %>
     <label for="studio_features_attributes_1_feature">徒歩5分以内</label>
-  <input type="checkbox" value="parking" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature">
+    
+  <% if @studio.features.pluck(:feature).include?("parking") %>
+    <input type="checkbox" value="parking" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="parking" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature" >
+  <% end %>
     <label for="studio_features_attributes_2_feature">駐車場あり</label>
-  <input type="checkbox" value="rental" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature">
+
+  <% if @studio.features.pluck(:feature).include?("rental") %>
+    <input type="checkbox" value="rental" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="rental" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature" >
+  <% end %>
     <label for="studio_features_attributes_3_feature">レンタルあり</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature">
+
+  <% if @studio.features.pluck(:feature).include?("pack") %>
+    <input type="checkbox" value="pack" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="pack" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature" >
+  <% end %>
     <label for="studio_features_attributes_4_feature">パック料金あり</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature">
+
+  <% if @studio.features.pluck(:feature).include?("web") %>
+    <input type="checkbox" value="web" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="web" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature" >
+  <% end %>
     <label for="studio_features_attributes_5_feature">Web予約可</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature">
+
+  <% if @studio.features.pluck(:feature).include?("convenience") %>
+    <input type="checkbox" value="convenience" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="convenience" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" >
+  <% end %>
     <label for="studio_features_attributes_6_feature">コンビニあり</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature">
+
+  <% if @studio.features.pluck(:feature).include?("restaurant") %>
+    <input type="checkbox" value="restaurant" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="restaurant" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature" >
+  <% end %>
     <label for="studio_features_attributes_7_feature">飲食店あり</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature">
+
+  <% if @studio.features.pluck(:feature).include?("break") %>
+    <input type="checkbox" value="break" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="break" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature" >
+  <% end %>
     <label for="studio_features_attributes_8_feature">休憩スペースあり</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature">
+
+  <% if @studio.features.pluck(:feature).include?("smoking") %>
+    <input type="checkbox" value="smoking" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="smoking" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature" >
+  <% end %>
     <label for="studio_features_attributes_9_feature">スタジオ内喫煙可</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature">
+
+  <% if @studio.features.pluck(:feature).include?("eating") %>
+    <input type="checkbox" value="eating" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="eating" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature" >
+  <% end %>
     <label for="studio_features_attributes_10_feature">スタジオ内飲食可</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature">
+
+  <% if @studio.features.pluck(:feature).include?("piano") %>
+    <input type="checkbox" value="piano" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="piano" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature" >
+  <% end %>
     <label for="studio_features_attributes_11_feature">生ピアノあり</label>
-  <input type="checkbox" value="pack" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature">
+  
+  <% if @studio.features.pluck(:feature).include?("live") %>
+    <input type="checkbox" value="live" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature" checked="checked" >
+  <% else %>
+    <input type="checkbox" value="live" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature" >
+  <% end %>
     <label for="studio_features_attributes_12_feature">スタジオライブ可</label>
 
   </div>

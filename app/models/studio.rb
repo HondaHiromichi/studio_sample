@@ -30,4 +30,13 @@ class Studio < ApplicationRecord
   validates :name, presence: true
   validates :phone, presence: true
   # validates :image_content_type, acceptance: true
+
+  def self.search(search)
+    if search
+      Studio.where(['station LIKE ?', "%#{search}%"])
+    else
+      Studio.all
+    end
+  end
+
 end
