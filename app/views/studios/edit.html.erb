@@ -74,7 +74,7 @@ $(document).ready(function () {
   
     <%= form.label :image %>
     <%= form.fields_for :images do |i| %>
-      <%= form.file_field :images, class: "file", name: "studio[images_attributes][0][image]" %>
+
       <%= image_tag i.object.image.url %>
 
       <%= i.check_box :_destroy %>
