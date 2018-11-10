@@ -116,14 +116,14 @@
 
   </script>
 
-
-
 <%= form.label :image %>
-<div class="field_1">
+  <div class="field_1">
     <%= form.fields_for @studio.images.find_by(sequence: '1') do |i| %>
       <%= image_tag i.object.image.url %>
-      <%= i.check_box :_destroy %>
-      <%= i.label :_destroy, "削除" %>
+
+      <input type="checkbox" value="/missing.png" name="studio[images_attributes][0][image_file_name]" id="studio_images_attributes_0_image_file_name">
+      <label for="studio_images_attributes_0_image_file_name">削除</label>
+    
       <% end %>
     <%= form.hidden_field "images_attributes][0][id", value: @studio.images.ids.first, id: "studio_images_attributes_0_id" %>
   </div>
@@ -131,6 +131,10 @@
   <div class="field_2">
     <%= form.fields_for @studio.images.find_by(sequence: '2') do |i| %>
       <%= image_tag i.object.image.url %>
+
+      <input type="checkbox" value="" name="studio[images_attributes][1][_destroy]" id="studio_images_attributes_1__destroy">
+      <label for="studio_images_attributes_1__destroy">削除</label>
+
       <% end %>
       <%= form.hidden_field "images_attributes][1][id", value: @studio.images.ids.second, id: "studio_images_attributes_1_id" %>
   </div>
@@ -138,6 +142,10 @@
   <div class="field_3">
     <%= form.fields_for @studio.images.find_by(sequence: '3') do |i| %>
       <%= image_tag i.object.image.url %>
+
+      <input type="checkbox" value="" name="studio[images_attributes][2][_destroy]" id="studio_images_attributes_2__destroy">
+      <label for="studio_images_attributes_2__destroy">削除</label>
+
       <% end %>
       <%= form.hidden_field "images_attributes][2][id", value: @studio.images.ids.third, id: "studio_images_attributes_2_id" %>
   </div>
@@ -145,6 +153,10 @@
   <div class="field_4">
     <%= form.fields_for @studio.images.find_by(sequence: '4') do |i| %>
       <%= image_tag i.object.image.url %>
+
+      <input type="checkbox" value="" name="studio[images_attributes][3][_destroy]" id="studio_images_attributes_3__destroy">
+      <label for="studio_images_attributes_3__destroy">削除</label>
+
       <% end %>
       <%= form.hidden_field "images_attributes][3][id", value: @studio.images.ids.fourth, id: "studio_images_attributes_3_id" %>
   </div>
