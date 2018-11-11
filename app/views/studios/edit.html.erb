@@ -121,7 +121,7 @@
     <%= form.fields_for @studio.images.find_by(sequence: '1') do |i| %>
       <%= image_tag i.object.image.url %>
 
-      <input type="checkbox" value="/missing.png" name="studio[images_attributes][0][image_file_name]" id="studio_images_attributes_0_image_file_name">
+      <input type="checkbox" value="" name="studio[images_attributes][0][image_file_name]" id="studio_images_attributes_0_image_file_name">
       <label for="studio_images_attributes_0_image_file_name">削除</label>
     
       <% end %>
