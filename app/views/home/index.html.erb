@@ -15,7 +15,7 @@
     <% @studios.each do |studio| %>
       <tr>
         <td><%= studio.id %></td>
-        <td><%= studio.name %></td>
+        <td><%= link_to studio.name, home_path(studio) %></td>
       </tr>
     <% end %>
 </table>
