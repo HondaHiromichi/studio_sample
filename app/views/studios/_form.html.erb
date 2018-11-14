@@ -69,16 +69,23 @@ $(document).ready(function () {
 
 </script>
 
-  
-  
-    <%= form.label :image %>
-    <% 4.times do %>
-    <div class="field">
-    <%= form.fields_for :images do |image| %>
-    <%= image.file_field :image, class: "file" %>
-    <% end %>
-    </div>
-    <% end %>
+<%= form.label :image %>
+  <div class="field">
+    <input name="studio[images_attributes][0][sequence]" type="hidden" value="1">
+    <%= form.file_field :images, class: "file", name: "studio[images_attributes][0][image]" %>
+  </div>
+  <div class="field">
+    <input name="studio[images_attributes][1][sequence]" type="hidden" value="2">
+    <%= form.file_field :images, class: "file", name: "studio[images_attributes][1][image]" %>
+  </div>
+  <div class="field">
+    <input name="studio[images_attributes][2][sequence]" type="hidden" value="3">
+    <%= form.file_field :images, class: "file", name: "studio[images_attributes][2][image]" %>
+  </div>
+  <div class="field">
+    <input name="studio[images_attributes][3][sequence]" type="hidden" value="4">
+    <%= form.file_field :images, class: "file", name: "studio[images_attributes][3][image]" %>
+  </div>
 
   <div class="field">
     <%= form.label :information %>

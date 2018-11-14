@@ -56,5 +56,4 @@ class StudiosController < ApplicationController
     )
   end
 
-
 end
