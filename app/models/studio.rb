@@ -24,12 +24,17 @@ class Studio < ApplicationRecord
   belongs_to :user
   has_many :images, dependent: :destroy
   has_many :features, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :features
   validates :user_id, presence: true
   validates :name, presence: true
   validates :phone, presence: true
   # validates :image_content_type, acceptance: true
+
+  def review_user(user_id)
+    reviews.find_by(user_id: user_id)
+  end
 
   def self.search(search)
     if search

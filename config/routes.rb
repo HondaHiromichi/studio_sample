@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :studios
+  resources :studios do
+    resources :reviews, only: [:create, :destroy]
+  end
   resources :home, :except => :index
   ActiveAdmin.routes(self)
   root 'home#index'

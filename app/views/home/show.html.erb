@@ -2,3 +2,25 @@
   <strong>Name:</strong>
   <%= @studio.name %>
 </p>
+
+<% if user_signed_in? %>
+  <% if @studio.review_user(current_user.id) %>
+    <%= button_to "いいねを解除", studio_review_path(studio_id: @studio.id), method: :delete, id: "review-button" %>
+      <%= image_tag("/icon_red_heart.png") %>
+      <span>
+        <%= @studio.reviews_count %>
+      </span>
+  <% else %>
+    <%= button_to "いいね", studio_reviews_path(@studio), id: "review-button"%>
+      <%= image_tag("/icon_heart.png") %>
+      <span>
+        <%= @studio.reviews_count %>
+      </span>
+  <% end %>
+<% else %>
+  <%= image_tag("/icon_heart.png") %>
+    <span>
+      <%= @studio.reviews_count %>
+    </span>
+<% end %>
+
