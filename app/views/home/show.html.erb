@@ -18,9 +18,10 @@
       </span>
   <% end %>
 <% else %>
-  <%= image_tag("/icon_heart.png") %>
-    <span>
-      <%= @studio.reviews_count %>
-    </span>
+  <input type="submit" value="いいね" disabled="disabled" >
+    <%= image_tag("/icon_heart.png") %>
+      <span>
+        <%= @studio.reviews_count %>
+      </span>
 <% end %>
 

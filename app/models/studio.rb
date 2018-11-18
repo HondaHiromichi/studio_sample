@@ -30,6 +30,7 @@ class Studio < ApplicationRecord
   validates :user_id, presence: true
   validates :name, presence: true
   validates :phone, presence: true
+  scope :publish, -> { where(post_flag: "0") }
   # validates :image_content_type, acceptance: true
 
   def review_user(user_id)
