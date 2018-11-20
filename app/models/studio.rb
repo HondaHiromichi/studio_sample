@@ -31,6 +31,8 @@ class Studio < ApplicationRecord
   validates :name, presence: true
   validates :phone, presence: true
   scope :publish, -> { where(post_flag: "0") }
+  # geocoded_by :address
+  # after_validation :geocode
   # validates :image_content_type, acceptance: true
 
   def review_user(user_id)

@@ -85,3 +85,7 @@ gem 'activeadmin'
 gem 'paperclip', '~> 5.0.0'
 
 gem 'enum_help'
+
+gem "gmaps4rails"
+
+gem "geocoder", '1.5.0'

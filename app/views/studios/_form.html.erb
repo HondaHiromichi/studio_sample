@@ -130,10 +130,20 @@ $(document).ready(function () {
       <% end %>
     <% end %>
   </div>
-
+  
   <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :緯度 %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :経度 %>
+    <%= form.text_field :longitude %>
   </div>
 
   <div class="field">

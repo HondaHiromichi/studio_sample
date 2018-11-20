@@ -5,6 +5,9 @@ class HomeController < ApplicationController
 
   def show
     @studio = Studio.publish.find(params[:id])
+    @latitude = @studio.latitude
+    @longitude = @studio.longitude
+    @address = @studio.address
   end
 
 end
