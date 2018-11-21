@@ -5,6 +5,8 @@
   <%= submit_tag '検索', :name => nil %>
 <% end %>
 
+検索結果：<%= @studio.count %>件
+
 <table>
     <tr>
       <th>スタジオID</th>
@@ -18,3 +20,5 @@
       </tr>
     <% end %>
 </table>
+
+<%= paginate @studios %>

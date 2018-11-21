@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
+
+  PER = 20
+
   def index
-    @studios = Studio.publish.search(params[:search])
+    @studio = Studio.publish.search(params[:search])
+    @studios = @studio.page(params[:page]).per(PER)
   end
 
   def show

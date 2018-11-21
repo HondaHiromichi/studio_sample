@@ -89,3 +89,5 @@ gem 'enum_help'
 gem "gmaps4rails"
 
 gem "geocoder", '1.5.0'
+
+gem 'kaminari'
