@@ -3,15 +3,26 @@ class HomeController < ApplicationController
   PER = 20
 
   def index
-    @studio = Studio.publish.search(params[:search])
+    @q = Studio.publish.ransack(params[:q])
+    @q.sorts = 'reviews_count desc' if @q.sorts.empty?
+    @studios = @q.result(distinct: true).page(params[:page]).per(PER)
+  end
+
+  def search
+    @q = Studio.publish.search(search_params)
+    @q.sorts = 'reviews_count desc' if @q.sorts.empty?
+    @studio = @q.result(distinct: true)
     @studios = @studio.page(params[:page]).per(PER)
   end
 
   def show
     @studio = Studio.publish.find(params[:id])
-    @latitude = @studio.latitude
-    @longitude = @studio.longitude
-    @address = @studio.address
+  end
+
+  private
+
+  def search_params
+    params.require(:q).permit(:name_cont, :station_cont, :area_eq, :features_feature_eq, :s)
   end
 
 end

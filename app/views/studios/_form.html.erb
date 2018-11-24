@@ -11,36 +11,261 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :post_flag %>
-    <%= form.check_box :post_flag %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <body>
+    
+    <div class="container">
+    <div class="table-responsive">
+      
+      
+      
+  <table class="table">
+    <form>
+    <tbody>
+      <tr>
+      <th scope="row">
+      <%= form.label :post_flag %>
+      </th>
+      <td>
+      <%= form.check_box :post_flag %> （ ※掲載を解除する場合はこちらにチェックを入れてください）
+      </td>
+      </tr>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
+      <tr>
+      <th scope="row">
+      <%= form.label :name %>
+      </th>
+      <td>
+      <%= form.text_field :name, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :phone %>
+      </th>
+      <td>
+      <%= form.text_field :phone, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :image %>1
+      </th>
+      <td>
+      <div class="field_1">
+      </div>
+      <div class="form-group">
+      <input name="studio[images_attributes][0][sequence]" type="hidden" value="1">
+      <%= form.file_field :images, class: "file_1", name: "studio[images_attributes][0][image]" %>
+      </div>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :image %>2
+      </th>
+      <td>
+      <div class="field_2">
+      </div>
+      <div class="form-group">
+      <input name="studio[images_attributes][1][sequence]" type="hidden" value="2">
+      <%= form.file_field :images, class: "file_2", name: "studio[images_attributes][1][image]" %>
+      </div>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :image %>3
+      </th>
+      <td>
+      <div class="field_3">
+      </div>
+      <div class="form-group">
+      <input name="studio[images_attributes][2][sequence]" type="hidden" value="3">
+      <%= form.file_field :images, class: "file_3", name: "studio[images_attributes][2][image]" %>
+      </div>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :image %>4
+      </th>
+      <td>
+      <div class="field_4">
+      </div>
+      <div class="form-group">
+      <input name="studio[images_attributes][3][sequence]" type="hidden" value="4">
+      <%= form.file_field :images, class: "file_4", name: "studio[images_attributes][3][image]" %>
+      </div>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :information %>
+      </th>
+      <td>
+      <%= form.text_area :information, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :area %>
+      </th>
+      <td>
+      <%= form.select :area, [["北海道", "北海道"], ["北陸、甲信越", "北陸、甲信越"], ["北関東", "北関東"], ["首都圏", "首都圏"], ["東海", "東海"], ["関西", "関西"], ["中国", "中国"], ["四国", "四国"], ["沖縄", "沖縄"]], {}, {class: 'form-control'}%>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :station %>
+      </th>
+      <td>
+      <%= form.text_field :station, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :business_hours %>
+      </th>
+      <td>
+      <%= form.text_field :business_hours, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :room %>
+      </th>
+      <td>
+      <%= form.text_field :room, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :lowest_price %>
+      </th>
+      <td>
+      <%= form.text_field :lowest_price, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :price %>
+      </th>
+      <td>
+      <%= form.text_field :price, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :feature %>
+      </th>
+      <td>
+      <input type="checkbox" value="rec" name="studio[features_attributes][0][feature]" id="studio_features_attributes_0_feature">
+      <label for="studio_features_attributes_0_feature">レコーディング可</label>
+      <input type="checkbox" value="near" name="studio[features_attributes][1][feature]" id="studio_features_attributes_1_feature">
+      <label for="studio_features_attributes_1_feature">徒歩5分以内</label>
+      <input type="checkbox" value="parking" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature">
+      <label for="studio_features_attributes_2_feature">駐車場あり</label>
+      <input type="checkbox" value="rental" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature">
+      <label for="studio_features_attributes_3_feature">レンタルあり</label>
+      <input type="checkbox" value="pack" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature">
+      <label for="studio_features_attributes_4_feature">パック料金あり</label>
+      <input type="checkbox" value="web" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature">
+      <label for="studio_features_attributes_5_feature">Web予約可</label>
+      <input type="checkbox" value="convenience" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature">
+      <label for="studio_features_attributes_6_feature">コンビニあり</label><br />
+      <input type="checkbox" value="restaurant" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature">
+      <label for="studio_features_attributes_7_feature">飲食店あり</label>
+      <input type="checkbox" value="break" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature">
+      <label for="studio_features_attributes_8_feature">休憩スペースあり</label>
+      <input type="checkbox" value="smoking" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature">
+      <label for="studio_features_attributes_9_feature">スタジオ内喫煙可</label>
+      <input type="checkbox" value="eating" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature">
+      <label for="studio_features_attributes_10_feature">スタジオ内飲食可</label>
+      <input type="checkbox" value="piano" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature">
+      <label for="studio_features_attributes_11_feature">生ピアノあり</label>
+      <input type="checkbox" value="live" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature">
+      <label for="studio_features_attributes_12_feature">スタジオライブ可</label>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :address %>
+      </th>
+      <td>
+      <%= form.text_field :address, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :sorroundings %>
+      </th>
+      <td>
+      <%= form.text_area :sorroundings, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :etc %>
+      </th>
+      <td>
+      <%= form.text_area :etc, class: "form-control" %>
+      </td>
+      </tr>
+
+      <tr>
+      <th scope="row">
+      <%= form.label :url %>
+      </th>
+      <td>
+      <%= form.text_field :url, class: "form-control" %>
+      </td>
+      </tr>
+
+    <tr>
+      <td colspan="2" class="text-center submit">
+      <input type="submit" name="commit" value="登録" class="btn btn-outline-dark" submit data-confirm="スタジオを登録しますか？" data-disable-with="登録">
+      </td>
+    </tr>
+    
+  </tbody>
+  </form>
+  </table>
+</div>
+    </div>
+  </body>
 
 <script>
 
 $(document).ready(function () {
-  $(".file").on('change', function(){
+  var view_box = $('.field_1');
+  
+  $(".file_1").on('change', function(){
     var fileprop = $(this).prop('files')[0],
         find_img = $(this).parent().find('img'),
-        filereader = new FileReader(),
-        view_box = $(this).parent('.field');
-    
+        filereader = new FileReader();
+        
     if(find_img.length){
       find_img.nextAll().remove();
       find_img.remove();
     }
     
-    var img = '<div class="img_view"><img alt="" class="img"><p><a href="#" class="img_del">画像を削除する</a></p></div>';
+    var img = '<div class="img_view"><img alt="" class="img"></div>';
     
     view_box.append(img);
 
@@ -50,118 +275,83 @@ $(document).ready(function () {
     }
     filereader.readAsDataURL(fileprop);
   });
+});
+
+$(document).ready(function () {
+  var view_box = $('.field_2');
   
-  function img_del(target){
-    target.find("a.img_del").on('click',function(){
-      var self = $(this),
-          parentBox = self.parent().parent().parent();
-      if(window.confirm('画像を削除します。\nよろしいですか？')){
-        setTimeout(function(){
-          parentBox.find('input[type=file]').val('');
-          parentBox.find('.img_view').remove();
-        } , 0);            
-      }
-      return false;
-    });
-  }  
+  $(".file_2").on('change', function(){
+    var fileprop = $(this).prop('files')[0],
+        find_img = $(this).parent().find('img'),
+        filereader = new FileReader();
+        
+    if(find_img.length){
+      find_img.nextAll().remove();
+      find_img.remove();
+    }
     
+    var img = '<div class="img_view"><img alt="" class="img"></div>';
+    
+    view_box.append(img);
+
+    filereader.onload = function() {
+      view_box.find('img').attr('src', filereader.result);
+      img_del(view_box);
+    }
+    filereader.readAsDataURL(fileprop);
+  });
+});
+
+$(document).ready(function () {
+  var view_box = $('.field_3');
+  
+  $(".file_3").on('change', function(){
+    var fileprop = $(this).prop('files')[0],
+        find_img = $(this).parent().find('img'),
+        filereader = new FileReader();
+        
+    if(find_img.length){
+      find_img.nextAll().remove();
+      find_img.remove();
+    }
+    
+    var img = '<div class="img_view"><img alt="" class="img"></div>';
+    
+    view_box.append(img);
+
+    filereader.onload = function() {
+      view_box.find('img').attr('src', filereader.result);
+      img_del(view_box);
+    }
+    filereader.readAsDataURL(fileprop);
+  });
+});
+
+$(document).ready(function () {
+  var view_box = $('.field_4');
+  
+  $(".file_4").on('change', function(){
+    var fileprop = $(this).prop('files')[0],
+        find_img = $(this).parent().find('img'),
+        filereader = new FileReader();
+        
+    if(find_img.length){
+      find_img.nextAll().remove();
+      find_img.remove();
+    }
+    
+    var img = '<div class="img_view"><img alt="" class="img"></div>';
+    
+    view_box.append(img);
+
+    filereader.onload = function() {
+      view_box.find('img').attr('src', filereader.result);
+      img_del(view_box);
+    }
+    filereader.readAsDataURL(fileprop);
+  });
 });
 
 </script>
 
-<%= form.label :image %>
-  <div class="field">
-    <input name="studio[images_attributes][0][sequence]" type="hidden" value="1">
-    <%= form.file_field :images, class: "file", name: "studio[images_attributes][0][image]" %>
-  </div>
-  <div class="field">
-    <input name="studio[images_attributes][1][sequence]" type="hidden" value="2">
-    <%= form.file_field :images, class: "file", name: "studio[images_attributes][1][image]" %>
-  </div>
-  <div class="field">
-    <input name="studio[images_attributes][2][sequence]" type="hidden" value="3">
-    <%= form.file_field :images, class: "file", name: "studio[images_attributes][2][image]" %>
-  </div>
-  <div class="field">
-    <input name="studio[images_attributes][3][sequence]" type="hidden" value="4">
-    <%= form.file_field :images, class: "file", name: "studio[images_attributes][3][image]" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :information %>
-    <%= form.text_field :information %>
-  </div>
-
-  <div class="field">
-    <%= form.label :area %>
-    <%= form.text_field :area %>
-  </div>
-
-  <div class="field">
-    <%= form.label :station %>
-    <%= form.text_field :station %>
-  </div>
-
-  <div class="field">
-    <%= form.label :business_hours %>
-    <%= form.text_field :business_hours %>
-  </div>
-
-  <div class="field">
-    <%= form.label :room %>
-    <%= form.text_field :room %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lowest_price %>
-    <%= form.text_field :lowest_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <% Feature.features_i18n.map do |k, v| %>
-      <%= form.fields_for :features do |features| %>
-        <%= features.check_box :feature, {:checked=>false}, k, false %>
-        <%= features.label :feature, v %>
-      <% end %>
-    <% end %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :緯度 %>
-    <%= form.text_field :latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :経度 %>
-    <%= form.text_field :longitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sorroundings %>
-    <%= form.text_field :sorroundings %>
-  </div>
-
-  <div class="field">
-    <%= form.label :etc %>
-    <%= form.text_field :etc %>
-  </div>
-
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit '登録', data: { confirm: 'スタジオを登録しますか？' } %>
-  </div>
 <% end %>

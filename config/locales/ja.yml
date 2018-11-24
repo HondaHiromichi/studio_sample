@@ -26,3 +26,22 @@ ja:
         password: パスワード
         email_or_account_name: Eメール or 名前
         password_confirmation: パスワード再確認
+      label:
+      studio:
+        post_flag: "掲載解除フラグ"
+        name: "スタジオ名"
+        phone: "電話番号"
+        image: "画像"
+        information: "店舗情報"
+        area: "地域"
+        station: "最寄駅"
+        business_hours: "営業時間"
+        room: "部屋数"
+        lowest_price: "最安料金"
+        price: "料金"
+        feature: "条件"
+        address: "住所"
+        sorroundings: "周辺情報"
+        etc: "備考"
+        url: "URL"
+

@@ -1,0 +1,59 @@
+<%= search_form_for(@q, url:search_path) do |f| %>
+
+  <%= f.label :station_cont, '駅名' %>
+  <%= f.search_field :station_cont %>
+
+  <%= f.label :name_cont, 'スタジオ名' %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.radio_button :area_eq, '', {:checked => true} %>
+  <%= f.label :area_eq, '指定なし' %>
+  <%= f.radio_button :area_eq, '北海道' %>
+  <%= f.label :area_eq, '北海道' %>
+  <%= f.radio_button :area_eq, '北陸、甲信越' %>
+  <%= f.label :area_eq, '北陸、甲信越' %>
+  <%= f.radio_button :area_eq, '北関東' %>
+  <%= f.label :area_eq, '北関東' %>
+  <%= f.radio_button :area_eq, '首都圏' %>
+  <%= f.label :area_eq, '首都圏' %>
+  <%= f.radio_button :area_eq, '東海' %>
+  <%= f.label :area_eq, '東海' %>
+  <%= f.radio_button :area_eq, '関西' %>
+  <%= f.label :area_eq, '関西' %>
+  <%= f.radio_button :area_eq, '中国' %>
+  <%= f.label :area_eq, '中国' %>
+  <%= f.radio_button :area_eq, '四国' %>
+  <%= f.label :area_eq, '四国' %>
+  <%= f.radio_button :area_eq, '沖縄' %>
+  <%= f.label :area_eq, '沖縄' %>
+
+  <input value="0" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq">
+  <label for="q_features_feature_eq">レコーディング可</label>
+  <input value="1" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_1">
+  <label for="q_features_feature_eq_1">徒歩5分以内</label>
+  <input value="2" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_2">
+  <label for="q_features_feature_eq_2">駐車場あり</label>
+  <input value="3" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_3">
+  <label for="q_features_feature_eq_3">レンタルあり</label>
+  <input value="4" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_4">
+  <label for="q_features_feature_eq_4">パック料金あり</label>
+  <input value="5" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_5">
+  <label for="q_features_feature_eq_5">Web予約可</label>
+  <input value="6" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_6">
+  <label for="q_features_feature_eq_6">コンビニあり</label>
+  <input value="7" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_7">
+  <label for="q_features_feature_eq_7">飲食店あり</label>
+  <input value="8" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_8">
+  <label for="q_features_feature_eq_8">休憩スペースあり</label>
+  <input value="9" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_9">
+  <label for="q_features_feature_eq_9">スタジオ内喫煙可</label>
+  <input value="10" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_10">
+  <label for="q_features_feature_eq_10">スタジオ内飲食可</label>
+  <input value="11" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_11">
+  <label for="q_features_feature_eq_11">生ピアノあり</label>
+  <input value="12" type="checkbox" name="q[features_feature_eq]" id="q_features_feature_eq_12">
+  <label for="q_features_feature_eq_12">スタジオライブ可</label>
+
+<%= f.submit %>
+
+<% end %>

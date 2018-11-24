@@ -49,6 +49,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'pry-coolline'
+  gem 'bullet'
 end
 
 group :development do
@@ -91,3 +92,5 @@ gem "gmaps4rails"
 gem "geocoder", '1.5.0'
 
 gem 'kaminari'
+
+gem 'ransack'

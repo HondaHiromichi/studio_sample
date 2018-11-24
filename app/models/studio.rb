@@ -39,12 +39,4 @@ class Studio < ApplicationRecord
     reviews.find_by(user_id: user_id)
   end
 
-  def self.search(search)
-    if search
-      Studio.where(['station LIKE ?', "%#{search}%"])
-    else
-      Studio.all
-    end
-  end
-
 end
