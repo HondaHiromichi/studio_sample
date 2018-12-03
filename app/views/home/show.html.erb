@@ -1,38 +1,207 @@
-<p>
-  <strong>店舗名:</strong>
-  <%= @studio.name %>
-</p>
-
-<p>
-  <strong>公式サイト:</strong>
-  <%= link_to @studio.url, @studio.url, :target => "_blank" %>
-</p>
-
-<% if user_signed_in? %>
-  <% if @studio.review_user(current_user.id) %>
-    <%= button_to "いいねを解除", studio_review_path(studio_id: @studio.id), method: :delete, id: "review-button" %>
-      <%= image_tag("/icon_red_heart.png") %>
-      <span>
-        <%= @studio.reviews_count %>
-      </span>
+<div class="col-12 clearfix">
+  <% if @studio.images.find_by(sequence: '1').image_file_name == "" %>
+    <%= image_tag ("/missing.png") %>
   <% else %>
-    <%= button_to "いいね", studio_reviews_path(@studio), id: "review-button"%>
-      <%= image_tag("/icon_heart.png") %>
-      <span>
-        <%= @studio.reviews_count %>
-      </span>
+    <%= image_tag @studio.images.find_by(sequence: '1').image.url, :size =>'400x400' %>
   <% end %>
-<% else %>
-  <input type="submit" value="いいね" disabled="disabled" >
-    <%= image_tag("/icon_heart.png") %>
-      <span>
-        <%= @studio.reviews_count %>
-      </span>
-<% end %>
+    <div class="float-right">
+      <div class="card" style="width: 25rem;">
+        <div class="card-body">
+          <%= @studio.name %>
+        </div>
+      </div>
+    <div class="float-right">
+      <% if user_signed_in? %>
+        <% if @studio.review_user(current_user.id) %>
+          <%= button_to "いいねを解除", studio_review_path(studio_id: @studio.id), method: :delete, id: "review-button" %>
+            <%= image_tag("/icon_red_heart.png") %>
+            <span>
+              <%= @studio.reviews_count %>
+            </span>
+        <% else %>
+          <%= button_to "いいね", studio_reviews_path(@studio), id: "review-button"%>
+            <%= image_tag("/icon_heart.png") %>
+            <span>
+              <%= @studio.reviews_count %>
+            </span>
+        <% end %>
+      <% else %>
+        <input type="submit" value="いいね" disabled="disabled" >
+          <%= image_tag("/icon_heart.png") %>
+          <span>
+            <%= @studio.reviews_count %>
+          </span>
+      <% end %>
+    </div>
+    
+  
+  <table class="table table-bordered">
+    <form>
+    <tbody>
 
-<p>
-  <strong>住所:</strong>
-  <%= @studio.address %>
-</p>
+    <tr>
+      <th scope="row">
+      TEL:
+      </th>
+      <td>
+      <%= @studio.phone %>
+      </td>
+    </tr>
+    
 
-<iframe src="http://maps.google.co.jp/maps?q=<%= @studio.address %>&output=embed&t=m&z=16&hl=ja" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="600" height="450"></iframe>
+    
+    </tbody>
+  </form>
+  </table>
+
+<div class="card" style="width: 34rem;">
+      <div class="card-body">
+        <%= @studio.information %>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div class="card" style="width: 34rem;">
+  <div class="card-body">
+    <% if @studio.images.find_by(sequence: '2').image_file_name == "" %>
+      <%= image_tag ("/missing.png") %>
+    <% else %>
+      <%= image_tag @studio.images.find_by(sequence: '2').image.url %>
+    <% end %>
+    <% if @studio.images.find_by(sequence: '3').image_file_name == "" %>
+      <%= image_tag ("/missing.png") %>
+    <% else %>
+      <%= image_tag @studio.images.find_by(sequence: '3').image.url %>
+    <% end %>
+    <% if @studio.images.find_by(sequence: '4').image_file_name == "" %>
+      <%= image_tag ("/missing.png") %>
+    <% else %>
+      <%= image_tag @studio.images.find_by(sequence: '4').image.url %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<table class="table table-bordered" style="width: 34rem;">
+    <form>
+    <tbody>
+
+    <tr>
+      <th scope="row">
+      エリア:
+      </th>
+      <td>
+      <%= @studio.area %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">
+      最寄駅:
+      </th>
+      <td>
+      <%= @studio.station %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">
+      営業時間:
+      </th>
+      <td>
+      <%= @studio.business_hours %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">
+      部屋数:
+      </th>
+      <td>
+      <%= @studio.room %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">
+      料金:
+      </th>
+      <td>
+      <%= @studio.price %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">
+      住所:
+      </th>
+      <td>
+      <%= @studio.address %>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">
+      URL:
+      </th>
+      <td>
+      <%= link_to @studio.url, @studio.url, :target => "_blank" %>
+      </td>
+    </tr>
+    
+    </tbody>
+  </form>
+  </table>
+
+<div class="float-right">
+<table class="table table-bordered" style="width: 34rem;">
+    <form>
+    <tbody>
+
+    <tr>
+      <th scope="row">
+      条件:
+      </th>
+      <td>
+      <% @studio.features.pluck(:feature).each do |v| %>
+      <%= Feature.features_i18n[v] %><br/>
+      <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">
+      周辺情報:
+      </th>
+      <td>
+      <%= @studio.sorroundings %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">
+      備考:
+      </th>
+      <td>
+      <%= @studio.etc %>
+      </td>
+    </tr>
+    
+
+    
+    </tbody>
+  </form>
+  </table>
+  </div>
+
+
+
+
+
+
+<iframe src="http://maps.google.co.jp/maps?q=<%= @studio.address %>&output=embed&t=m&z=16&hl=ja" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="1100" height="450"></iframe>

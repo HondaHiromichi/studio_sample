@@ -28,15 +28,32 @@ class Studio < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :features
   validates :user_id, presence: true
-  validates :name, presence: true
-  validates :phone, presence: true
+  validates :name, :phone, :area, :station, :address, presence: true
   scope :publish, -> { where(post_flag: "0") }
+  scope :having_all_equipmentlists_of, ->(*feature_ids) {
+    joins(:features)
+      .group(:studio_id)
+      .having("count(*) = ?", feature_ids )
+  }
+
+  
+
+
   # geocoded_by :address
   # after_validation :geocode
   # validates :image_content_type, acceptance: true
 
+  
+
+
   def review_user(user_id)
     reviews.find_by(user_id: user_id)
+  end
+
+  private
+
+  def self.ransackable_scopes(auth_object = nil)
+    %i(having_all_equipmentlists_of)
   end
 
 end

@@ -1,6 +1,28 @@
-<h1>検索結果</h1>
+<div class="col-12 clearfix">
+    <% unless params[:q][:area_eq].empty? %>
+    エリア：<%= params[:q][:area_eq] %><br/>
+    <% end %>
+    <% unless params[:q][:station_cont].empty? %>
+    最寄駅：<%= params[:q][:station_cont] %><br/>
+    <% end %>
+    <% unless params[:q][:features_feature_in].empty? %>
+    スタジオ名：<%= params[:q][:features_feature_in] %>
+    <% end %>
+    <% unless params[:q][:name_cont].empty? %>
+    スタジオ名：<%= params[:q][:name_cont] %><br/>
+    <% end %>
+<div class="float-right">
+<div class="card" style="width: 40rem;">
+  <div class="card-header">
+    <h1>検索</h1>
+  </div>
+  <div class="card-body">
+    <%= render 'search_form' %>
+  </div>
+</div>
+</div>
+</div>
 
-  <%= render 'search_form' %>
 
   検索結果：<%= @studio.count %>件
   

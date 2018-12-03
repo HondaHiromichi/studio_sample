@@ -1,20 +1,44 @@
-<h1>トップページ</h1>
+<div class="col-12 clearfix">
 
-  <%= render 'search_form' %>
+<div class="float-right">
+<div class="card" style="width: 30rem;" >
+
+  <div class="card-header" >
+    <h1>検索</h1>
+  </div>
+  <div class="card-body" >
+    <%= render 'search_form' %>
+  </div>
   
-<table>
+  
+</div>
+</div>
+</div>
+
+<table class="table table-bordered" style="table-layout:fixed;" >
+  <thead class="thead-dark">
     <tr>
-      <th>スタジオID</th>
-      <th>スタジオ名</th>
-      <th><%= sort_link(@q, :lowest_price, '価格') %></th>
-      <th><%= sort_link(@q, :reviews_count, 'いいね', default_order: :desc) %></th>
+      <th style="width:80px;">写真</th>
+      <th style="width:200px;">スタジオ名</th>
+      <th >電話番号</th>
+      <th >エリア</th>
+      <th >最寄駅</th>
+      <th >営業時間</th>
+      <th >部屋数</th>
+      <th style="width:100px;"><%= sort_link(@q, :lowest_price, '価格') %></th>
+      <th style="width:100px;"><%= sort_link(@q, :reviews_count, 'いいね', default_order: :desc) %></th>
     </tr>
   </thead>
     <% @studios.each do |studio| %>
       <tr>
-        <td><%= studio.id %></td>
+        <td><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
         <td><%= link_to studio.name, home_path(studio) %></td>
-        <td><%= studio.lowest_price %></td>
+        <td><%= studio.phone %></td>
+        <td><%= studio.area %></td>
+        <td><%= studio.station %></td>
+        <td><%= studio.business_hours %></td>
+        <td><%= studio.room %></td>
+        <td>￥<%= studio.lowest_price %>〜</td>
         <td><%= studio.reviews_count %></td>
       </tr>
     <% end %>
