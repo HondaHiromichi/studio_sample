@@ -1,7 +1,8 @@
-<div class="col-12 clearfix">
+<div class="container">
 
-<div class="float-right">
-<div class="card" style="width: 30rem;" >
+<div class="row">
+<div class="col-md-12">
+<div class="card" >
 
   <div class="card-header" >
     <h1>検索</h1>
@@ -14,7 +15,8 @@
 </div>
 </div>
 </div>
-
+<div class="row">
+<div class="col-md-12">
 <table class="table table-bordered" style="table-layout:fixed;" >
   <thead class="thead-dark">
     <tr>
@@ -31,17 +33,19 @@
   </thead>
     <% @studios.each do |studio| %>
       <tr>
-        <td><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
-        <td><%= link_to studio.name, home_path(studio) %></td>
-        <td><%= studio.phone %></td>
-        <td><%= studio.area %></td>
-        <td><%= studio.station %></td>
-        <td><%= studio.business_hours %></td>
-        <td><%= studio.room %></td>
-        <td>￥<%= studio.lowest_price %>〜</td>
-        <td><%= studio.reviews_count %></td>
+        <td class="table-secondary"><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
+        <td class="table-secondary"><%= link_to studio.name, home_path(studio), class: "text-dark" %></td>
+        <td class="table-secondary"><%= studio.phone %></td>
+        <td class="table-secondary"><%= studio.area %></td>
+        <td class="table-secondary"><%= studio.station %></td>
+        <td class="table-secondary"><%= studio.business_hours %></td>
+        <td class="table-secondary"><%= studio.room %></td>
+        <td class="table-secondary">￥<%= studio.lowest_price %>〜</td>
+        <td class="table-secondary"><%= studio.reviews_count %></td>
       </tr>
     <% end %>
 </table>
-
+</div>
+</div>
+</div>
 <%= paginate @studios %>

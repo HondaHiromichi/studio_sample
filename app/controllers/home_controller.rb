@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  PER = 20
+  PER = 5
 
   def index
     @q = Studio.publish.ransack(params[:q])

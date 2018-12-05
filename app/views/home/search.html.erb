@@ -1,47 +1,119 @@
-<div class="col-12 clearfix">
-    <% unless params[:q][:area_eq].empty? %>
-    エリア：<%= params[:q][:area_eq] %><br/>
-    <% end %>
-    <% unless params[:q][:station_cont].empty? %>
-    最寄駅：<%= params[:q][:station_cont] %><br/>
-    <% end %>
-    <% unless params[:q][:features_feature_in].empty? %>
-    スタジオ名：<%= params[:q][:features_feature_in] %>
-    <% end %>
-    <% unless params[:q][:name_cont].empty? %>
-    スタジオ名：<%= params[:q][:name_cont] %><br/>
-    <% end %>
-<div class="float-right">
-<div class="card" style="width: 40rem;">
-  <div class="card-header">
-    <h1>検索</h1>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="card" id="sampleAccordion" >
+
+  <div class="card-header" >
+    <h1>
+    検索条件:
+    </h1>
+    <h5>
+    エリア：<% unless params[:q][:area_eq].empty? %>
+    <%= params[:q][:area_eq] %>
+  
+  <% end %><br/>
+  最寄駅：<% unless params[:q][:station_cont].empty? %>
+    <%= params[:q][:station_cont] %>
+  
+  <% end %><br/>
+  条件：<% if params[:q][:features_feature_in].include?("0") %>
+    レコーディング可
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("1")%>
+    徒歩5分以内
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("2")%>
+    駐車場あり
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("3")%>
+    レンタルあり
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("4")%>
+    パック料金あり
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("5")%>
+    Web予約可
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("6")%>
+    コンビニあり
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("7")%>
+    飲食店あり
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("8")%>
+    休憩スペースあり
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("9")%>
+    スタジオ内喫煙可
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("10")%>
+    スタジオ内飲食可
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("11")%>
+    生ピアノあり
+  <% end %>
+  <% if params[:q][:features_feature_in].include?("12")%>
+    スタジオライブ可
+  <% end %><br/>
+  スタジオ名：<% unless params[:q][:name_cont].empty? %>
+    <%= params[:q][:name_cont] %><br/>
+  <% end %><br/>
+  </h5>
+    <a data-toggle="collapse" data-parent="#sampleAccordion" href="#sampleAccordionCollapse1" >
+    検索画面を表示
+    </a>
+    
   </div>
-  <div class="card-body">
+  <div id="sampleAccordionCollapse1" class="panel-collapse collapse in">
+  <div class="card-body" >
     <%= render 'search_form' %>
   </div>
-</div>
-</div>
-</div>
-
-
-  検索結果：<%= @studio.count %>件
   
-<table>
+  </div>
+</div>
+</div>
+</div>
+  
+<div class="row">
+<div class="col-md-12">
+<div class="float-right">
+  検索結果：<%= @studio.count %>件
+  </div>
+  </div>
+  </div>
+<div class="row">
+<div class="col-md-12">
+<table class="table table-bordered" style="table-layout:fixed;" >
+  <thead class="thead-dark">
     <tr>
-      <th>スタジオID</th>
-      <th>スタジオ名</th>
-      <th><%= sort_link(@q, :lowest_price, '価格') %></th>
-      <th><%= sort_link(@q, :reviews_count, 'いいね', default_order: :desc) %></th>
+      <th style="width:80px;">写真</th>
+      <th style="width:200px;">スタジオ名</th>
+      <th >電話番号</th>
+      <th >エリア</th>
+      <th >最寄駅</th>
+      <th >営業時間</th>
+      <th >部屋数</th>
+      <th style="width:100px;"><%= sort_link(@q, :lowest_price, '価格') %></th>
+      <th style="width:100px;"><%= sort_link(@q, :reviews_count, 'いいね', default_order: :desc) %></th>
     </tr>
   </thead>
     <% @studios.each do |studio| %>
       <tr>
-        <td><%= studio.id %></td>
-        <td><%= link_to studio.name, home_path(studio) %></td>
-        <td><%= studio.lowest_price %></td>
-        <td><%= studio.reviews_count %></td>
+        <td class="table-secondary"><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
+        <td class="table-secondary"><%= link_to studio.name, home_path(studio), class: "text-dark" %></td>
+        <td class="table-secondary"><%= studio.phone %></td>
+        <td class="table-secondary"><%= studio.area %></td>
+        <td class="table-secondary"><%= studio.station %></td>
+        <td class="table-secondary"><%= studio.business_hours %></td>
+        <td class="table-secondary"><%= studio.room %></td>
+        <td class="table-secondary">￥<%= studio.lowest_price %>〜</td>
+        <td class="table-secondary"><%= studio.reviews_count %></td>
       </tr>
     <% end %>
 </table>
-
+</div>
+</div>
+</div>
 <%= paginate @studios %>
+
+  

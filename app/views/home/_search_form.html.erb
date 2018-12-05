@@ -23,7 +23,7 @@
       <%= f.radio_button :area_eq, '北陸、甲信越' %>
       <%= f.label :area_eq, '北陸、甲信越' %>
       <%= f.radio_button :area_eq, '北関東' %>
-      <%= f.label :area_eq, '北関東' %><br/>
+      <%= f.label :area_eq, '北関東' %>
       <%= f.radio_button :area_eq, '首都圏' %>
       <%= f.label :area_eq, '首都圏' %>
       <%= f.radio_button :area_eq, '東海' %>
@@ -39,6 +39,7 @@
       </td>
     </tr>
 
+
     <tr>
       <th scope="row">
       <%= f.label :station, '最寄駅' %>
@@ -53,32 +54,34 @@
       <%= f.label :feature, '条件' %>
       </th>
       <td>
-      <input value="0" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in">
-      <label for="q_features_feature_in">レコーディング可</label>
-      <input value="1" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_1">
-      <label for="q_features_feature_in_1">徒歩5分以内</label>
-      <input value="2" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_2">
-      <label for="q_features_feature_in_2">駐車場あり</label><br/>
-      <input value="3" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_3">
-      <label for="q_features_feature_in_3">レンタルあり</label>
-      <input value="4" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_4">
-      <label for="q_features_feature_in_4">パック料金あり</label>
-      <input value="5" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_5">
-      <label for="q_features_feature_in_5">Web予約可</label><br/>
-      <input value="6" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_6">
-      <label for="q_features_feature_in_6">コンビニあり</label>
-      <input value="7" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_7">
-      <label for="q_features_feature_in_7">飲食店あり</label>
-      <input value="8" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_8">
-      <label for="q_features_feature_in_8">休憩スペースあり</label><br/>
-      <input value="9" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_9">
-      <label for="q_features_feature_in_9">スタジオ内喫煙可</label>
-      <input value="10" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_10">
-      <label for="q_features_feature_in_10">スタジオ内飲食可</label>
-      <input value="11" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_11">
-      <label for="q_features_feature_in_11">生ピアノあり</label><br/>
-      <input value="12" type="checkbox" name="q[features_feature_in][]" id="q_features_feature_in_12">
-      <label for="q_features_feature_in_12">スタジオライブ可</label>
+      <%= f.check_box :features_feature_in , { multiple: true }, 0, '' %>
+      <%= f.label :features_feature_in_0, 'レコーディング可' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 1, '' %>
+      <%= f.label :features_feature_in_1, '徒歩5分以内' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 2, '' %>
+      <%= f.label :features_feature_in_2, '駐車場あり' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 3, '' %>
+      <%= f.label :features_feature_in_3, 'レンタルあり' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 4, '' %>
+      <%= f.label :features_feature_in_4, 'パック料金あり' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 5, '' %>
+      <%= f.label :features_feature_in_5, 'Web予約可' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 6, '' %>
+      <%= f.label :features_feature_in_6, 'コンビニあり' %><br/>
+      <%= f.check_box :features_feature_in , { multiple: true }, 7, '' %>
+      <%= f.label :features_feature_in_7, '飲食店あり' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 8, '' %>
+      <%= f.label :features_feature_in_8, '休憩スペースあり' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 9, '' %>
+      <%= f.label :features_feature_in_9, 'スタジオ内喫煙可' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 10, '' %>
+      <%= f.label :features_feature_in_10, 'スタジオ内飲食可' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 11, '' %>
+      <%= f.label :features_feature_in_11, '生ピアノあり' %>
+      <%= f.check_box :features_feature_in , { multiple: true }, 12, '' %>
+      <%= f.label :features_feature_in_12, 'スタジオライブ可' %>
+      
+      
       </td>
     </tr>
 

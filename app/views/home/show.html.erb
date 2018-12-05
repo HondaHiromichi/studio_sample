@@ -1,41 +1,25 @@
-<div class="col-12 clearfix">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    <div class="card" style="width: 34rem;">
+    <div class="mx-auto">
   <% if @studio.images.find_by(sequence: '1').image_file_name == "" %>
     <%= image_tag ("/missing.png") %>
   <% else %>
     <%= image_tag @studio.images.find_by(sequence: '1').image.url, :size =>'400x400' %>
   <% end %>
-    <div class="float-right">
-      <div class="card" style="width: 25rem;">
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4">
+    
+      <div class="card" style="width: 21rem;">
         <div class="card-body">
           <%= @studio.name %>
         </div>
       </div>
-    <div class="float-right">
-      <% if user_signed_in? %>
-        <% if @studio.review_user(current_user.id) %>
-          <%= button_to "いいねを解除", studio_review_path(studio_id: @studio.id), method: :delete, id: "review-button" %>
-            <%= image_tag("/icon_red_heart.png") %>
-            <span>
-              <%= @studio.reviews_count %>
-            </span>
-        <% else %>
-          <%= button_to "いいね", studio_reviews_path(@studio), id: "review-button"%>
-            <%= image_tag("/icon_heart.png") %>
-            <span>
-              <%= @studio.reviews_count %>
-            </span>
-        <% end %>
-      <% else %>
-        <input type="submit" value="いいね" disabled="disabled" >
-          <%= image_tag("/icon_heart.png") %>
-          <span>
-            <%= @studio.reviews_count %>
-          </span>
-      <% end %>
-    </div>
-    
-  
-  <table class="table table-bordered">
+
+      <table class="table table-bordered">
     <form>
     <tbody>
 
@@ -61,38 +45,85 @@
     </div>
 
 
+    
+    </div>
+    <div class="col-md-2">
+      <% if user_signed_in? %>
+        <% if @studio.review_user(current_user.id) %>
+          <%= button_to "いいねを解除", studio_review_path(studio_id: @studio.id), method: :delete, id: "review-button", class:"btn btn-secondary" %>
+            <%= image_tag("/icon_red_heart.png") %>
+            <span>
+              <%= @studio.reviews_count %>
+            </span>
+        <% else %>
+          <%= button_to "いいね", studio_reviews_path(@studio), id: "review-button", class:"btn btn-danger" %>
+            <%= image_tag("/icon_heart.png") %>
+            <span>
+              <%= @studio.reviews_count %>
+            </span>
+        <% end %>
+      <% else %>
+        <input type="submit" value="いいね" disabled="disabled" class="btn btn-outline-danger">
+          <%= image_tag("/icon_heart.png") %>
+          <span>
+            <%= @studio.reviews_count %>
+          </span>
+      <% end %>
+      </div>
+    
+    
+  
+  
 
   </div>
-</div>
 
-<div class="card" style="width: 34rem;">
+
+<div class="card" style="width: 68rem;">
   <div class="card-body">
+  <div class="row">
+  
+    <div class="col-md-4">
+    <div class="mx-auto" style="width: 13rem;">
     <% if @studio.images.find_by(sequence: '2').image_file_name == "" %>
-      <%= image_tag ("/missing.png") %>
+      <%= image_tag ("/missing.png"), :size =>'200x200' %>
     <% else %>
-      <%= image_tag @studio.images.find_by(sequence: '2').image.url %>
+      <%= image_tag @studio.images.find_by(sequence: '2').image.url, :size =>'200x200' %>
     <% end %>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="mx-auto" style="width: 13rem;">
     <% if @studio.images.find_by(sequence: '3').image_file_name == "" %>
-      <%= image_tag ("/missing.png") %>
+      <%= image_tag ("/missing.png"), :size =>'200x200' %>
     <% else %>
-      <%= image_tag @studio.images.find_by(sequence: '3').image.url %>
+      <%= image_tag @studio.images.find_by(sequence: '3').image.url, :size =>'200x200' %>
     <% end %>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="mx-auto" style="width: 13rem;">
     <% if @studio.images.find_by(sequence: '4').image_file_name == "" %>
-      <%= image_tag ("/missing.png") %>
+      <%= image_tag ("/missing.png"), :size =>'200x200' %>
     <% else %>
-      <%= image_tag @studio.images.find_by(sequence: '4').image.url %>
+      <%= image_tag @studio.images.find_by(sequence: '4').image.url, :size =>'200x200' %>
     <% end %>
+    </div>
+    </div>
   </div>
+</div>
 </div>
 
 
 
+
+  <div class="row">
+    <div class="col-md-6">
 <table class="table table-bordered" style="width: 34rem;">
     <form>
     <tbody>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       エリア:
       </th>
       <td>
@@ -101,7 +132,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       最寄駅:
       </th>
       <td>
@@ -110,7 +141,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       営業時間:
       </th>
       <td>
@@ -119,7 +150,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       部屋数:
       </th>
       <td>
@@ -128,7 +159,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       料金:
       </th>
       <td>
@@ -137,7 +168,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       住所:
       </th>
       <td>
@@ -146,7 +177,7 @@
     </tr>
     
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       URL:
       </th>
       <td>
@@ -157,14 +188,16 @@
     </tbody>
   </form>
   </table>
+  </div>
 
-<div class="float-right">
+<div class="col-md-6">
+
 <table class="table table-bordered" style="width: 34rem;">
     <form>
     <tbody>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       条件:
       </th>
       <td>
@@ -175,7 +208,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       周辺情報:
       </th>
       <td>
@@ -184,7 +217,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:100px;">
       備考:
       </th>
       <td>
@@ -201,7 +234,13 @@
 
 
 
+<div class="row">
+    <div class="col-md-6">
 
 
 
 <iframe src="http://maps.google.co.jp/maps?q=<%= @studio.address %>&output=embed&t=m&z=16&hl=ja" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="1100" height="450"></iframe>
+
+</div>
+</div>
+</div>
