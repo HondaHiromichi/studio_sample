@@ -15,6 +15,7 @@ class Image < ApplicationRecord
 
   has_attached_file :image,
                     styles: { medium: '300*300>', thumb: '100*100>' },
+                    # path: "#{Rails.root}/app/assets/images/:filename",
                     # path: "#{Rails.root}/public/:filename",
                     default_url: '/missing.png'
 

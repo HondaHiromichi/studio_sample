@@ -11,4 +11,9 @@
 #
 
 class Review < ApplicationRecord
+  belongs_to :user
+  belongs_to :studio, counter_cache: :reviews_count
+  validates :user_id, presence: true
+  validates :studio_id, presence: true
+  validates :user_id, :uniqueness => {:scope => :studio_id}
 end

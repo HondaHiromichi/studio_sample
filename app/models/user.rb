@@ -32,6 +32,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_many :studios, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   validates :account_name, presence: true, uniqueness: true, length: { minimum: 1 }
 
   def self.find_first_by_auth_conditions(warden_conditions)

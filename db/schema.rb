@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_123638) do
+ActiveRecord::Schema.define(version: 2018_11_24_153529) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2018_10_31_123638) do
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "studio_id"
-    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["studio_id"], name: "index_reviews_on_studio_id"
@@ -69,6 +68,9 @@ ActiveRecord::Schema.define(version: 2018_10_31_123638) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.boolean "post_flag", default: false, null: false
+    t.integer "reviews_count", default: 0
+    t.float "latitude", limit: 53
+    t.float "longitude", limit: 53
     t.index ["user_id"], name: "index_studios_on_user_id"
   end
 

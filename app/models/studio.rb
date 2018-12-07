@@ -24,19 +24,36 @@ class Studio < ApplicationRecord
   belongs_to :user
   has_many :images, dependent: :destroy
   has_many :features, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :features
   validates :user_id, presence: true
-  validates :name, presence: true
-  validates :phone, presence: true
+  validates :name, :phone, :area, :station, :address, presence: true
+  scope :publish, -> { where(post_flag: "0") }
+  scope :having_all_equipmentlists_of, ->(feature_ids) {
+    joins(:features)
+      .group(:studio_id)
+      .having('count(*) > 3')
+  }
+
+  
+
+
+  # geocoded_by :address
+  # after_validation :geocode
   # validates :image_content_type, acceptance: true
 
-  def self.search(search)
-    if search
-      Studio.where(['station LIKE ?', "%#{search}%"])
-    else
-      Studio.all
-    end
+  
+
+
+  def review_user(user_id)
+    reviews.find_by(user_id: user_id)
+  end
+
+  private
+
+  def self.ransackable_scopes()
+    %i(having_all_equipmentlists_of)
   end
 
 end
