@@ -1,4 +1,275 @@
-<p>
-  <strong>Name:</strong>
-  <%= @studio.name %>
-</p>
+<div class="container">
+<div class="mt-3">
+</div>
+<div class="row">
+    <div class="col-md-9">
+<h2>スタジオ情報</h2>
+</div>
+      <% if user_signed_in? %>
+        <% if @studio.review_user(current_user.id) %>
+        <div class="col-md-1 mt-3">
+          <%= button_to "いいね", studio_review_path(studio_id: @studio.id), method: :delete, id: "review-button", class:"btn btn-secondary" %>
+          </div>
+          <div class="col-md-1">
+            <%= image_tag("/icon_red_heart.png") %>
+            </div>
+            <div class="col-md-1 mt-4">
+            <span>
+              <%= @studio.reviews_count %>
+            </span>
+            </div>
+        <% else %>
+        <div class="col-md-1 mt-3">
+          <%= button_to "いいね", studio_reviews_path(@studio), id: "review-button", class:"btn btn-danger" %>
+          </div>
+          <div class="col-md-1">
+            <%= image_tag("/icon_heart.png") %>
+            </div>
+            <div class="col-md-1 mt-4">
+            <span>
+              <%= @studio.reviews_count %>
+            </span>
+            </div>
+        <% end %>
+      <% else %>
+      <div class="col-md-1 mt-3">
+        <input type="submit" value="いいね" disabled="disabled" class="btn btn-outline-danger">
+        </div>
+        <div class="col-md-1">
+          <%= image_tag("/icon_heart.png") %>
+          </div>
+          <div class="col-md-1 mt-4">
+          <span>
+            <%= @studio.reviews_count %>
+          </span>
+          </div>
+      <% end %>
+      </div>
+
+<div class="mt-3">
+</div>
+  <div class="row">
+    <div class="col-md-6">
+    <div class="card">
+    <div class="mx-auto">
+  <% if @studio.images.find_by(sequence: '1').image_file_name == "" %>
+    <%= image_tag ("/missing.png") %>
+  <% else %>
+    <%= image_tag @studio.images.find_by(sequence: '1').image.url, :size =>'400x400' %>
+  <% end %>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-6">
+    
+      <div class="card" >
+        <div class="card-body">
+          <%= @studio.name %>
+        </div>
+      </div>
+      <div class="mt-1">
+      <table class="table table-bordered">
+    <form>
+    <tbody>
+
+    <tr>
+      <th scope="row">
+      TEL:
+      </th>
+      <td>
+      <%= @studio.phone %>
+      </td>
+    </tr>
+    
+
+    
+    </tbody>
+  </form>
+  </table>
+</div>
+<div class="card" >
+      <div class="card-body">
+        <%= @studio.information %>
+      </div>
+    </div>
+
+
+    
+    </div>
+    
+    
+    
+  
+  
+
+  </div>
+
+<div class="mt-3">
+</div>
+<div class="card">
+  <div class="card-body">
+  <div class="row">
+  
+    <div class="col-md-4">
+    <div class="mx-auto" style="width: 13rem;">
+    <% if @studio.images.find_by(sequence: '2').image_file_name == "" %>
+      <%= image_tag ("/missing.png"), :size =>'200x200' %>
+    <% else %>
+      <%= image_tag @studio.images.find_by(sequence: '2').image.url, :size =>'200x200' %>
+    <% end %>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="mx-auto" style="width: 13rem;">
+    <% if @studio.images.find_by(sequence: '3').image_file_name == "" %>
+      <%= image_tag ("/missing.png"), :size =>'200x200' %>
+    <% else %>
+      <%= image_tag @studio.images.find_by(sequence: '3').image.url, :size =>'200x200' %>
+    <% end %>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="mx-auto" style="width: 13rem;">
+    <% if @studio.images.find_by(sequence: '4').image_file_name == "" %>
+      <%= image_tag ("/missing.png"), :size =>'200x200' %>
+    <% else %>
+      <%= image_tag @studio.images.find_by(sequence: '4').image.url, :size =>'200x200' %>
+    <% end %>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div class="mt-5">
+</div>
+  <div class="row">
+    <div class="col-md-6">
+<table class="table table-bordered" >
+    <form>
+    <tbody>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      エリア:
+      </th>
+      <td>
+      <%= @studio.area %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      最寄駅:
+      </th>
+      <td>
+      <%= @studio.station %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      営業時間:
+      </th>
+      <td>
+      <%= @studio.business_hours %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      部屋数:
+      </th>
+      <td>
+      <%= @studio.room %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      料金:
+      </th>
+      <td>
+      <%= @studio.price %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      住所:
+      </th>
+      <td>
+      <%= @studio.address %>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row" style="width:100px;">
+      URL:
+      </th>
+      <td>
+      <%= link_to @studio.url, @studio.url, :target => "_blank" %>
+      </td>
+    </tr>
+    
+    </tbody>
+  </form>
+  </table>
+  </div>
+
+<div class="col-md-6">
+
+<table class="table table-bordered" >
+    <form>
+    <tbody>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      条件:
+      </th>
+      <td>
+      <% @studio.features.pluck(:feature).each do |v| %>
+      <%= Feature.features_i18n[v] %><br/>
+      <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      周辺情報:
+      </th>
+      <td>
+      <%= @studio.sorroundings %>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" style="width:100px;">
+      備考:
+      </th>
+      <td>
+      <%= @studio.etc %>
+      </td>
+    </tr>
+    
+
+    
+    </tbody>
+  </form>
+  </table>
+  </div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+
+
+
+<iframe src="http://maps.google.co.jp/maps?q=<%= @studio.address %>&output=embed&t=m&z=16&hl=ja" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="1100" height="450"></iframe>
+
+</div>
+</div>
+</div>

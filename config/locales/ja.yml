@@ -16,13 +16,46 @@ ja:
         piano: 生ピアノあり
         live: スタジオライブ可
 
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+
   activerecord:
     models:
       user: ユーザー
     attributes:
       user:
-        account_name: 名前
+        account_name: アカウント名
         email: Eメール
         password: パスワード
-        email_or_account_name: Eメール or 名前
+        login: Eメール or アカウント名
         password_confirmation: パスワード再確認
+        first_name: ファーストネーム
+        last_name: ラストネーム
+        phone: 電話番号
+      label:
+      studio:
+        post_flag: "掲載解除フラグ"
+        name: "スタジオ名"
+        phone: "電話番号"
+        image: "画像"
+        information: "店舗情報"
+        area: "地域"
+        station: "最寄駅"
+        business_hours: "営業時間"
+        room: "部屋数"
+        lowest_price: "最安料金"
+        price: "料金"
+        feature: "条件"
+        address: "住所"
+        sorroundings: "周辺情報"
+        etc: "備考"
+        url: "URL"
+

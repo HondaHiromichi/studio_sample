@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :studios
+  resources :studios do
+    resources :reviews, only: [:create, :destroy]
+  end
   resources :home, :except => :index
   ActiveAdmin.routes(self)
   root 'home#index'
+  get 'search', to: 'home#search'
   devise_for :users, :controllers => {:registrations => 'users/registrations'}
   devise_scope :user do
     get 'manager_edit', to: 'users/registrations#manager_edit', as: 'manager_edit'
