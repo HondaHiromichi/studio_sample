@@ -1,22 +1,40 @@
-<%= form_for current_user, url: {action: 'manager_update'} do |f| %>
-  <h2>店舗運営者新規作成</h2>
+<div class="container">
+  <div class="mt-5"></div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-12">
+        <div class="mx-auto" style="width: 600px;">
+          <div class="card">
+            <div class="card-header" >
+              <h2>店舗運営者新規作成</h2>
+            </div>
+              <div class="mx-auto" style="width: 500px;">
+                <div class="mt-3"></div>
+                  <%= form_for current_user, url: {action: 'manager_update'} do |f| %>
+                    
 
-  <div class="from-group">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, class: "form-control col-md-5 col-sm", placeholder: "ファーストネーム" %>
-  </div>
-
-  <div class="from-group">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, class: "form-control col-md-5 col-sm", placeholder: "ラストネーム" %>
-  </div>
-
-  <div class="from-group">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true, class: "form-control col-md-5 col-sm", placeholder: "電話番号" %>
-  </div>
-
-  <div class="actions pb-5">
-    <%= f.submit "新規作成", class: "btn btn-primary" %>
-  </div>
-<% end %>
+                    <div class="from-group">
+                      <%= f.label :first_name %><br />
+                      <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "ファーストネーム" %>
+                    </div>
+                    <div class="mt-3"></div>
+                    <div class="from-group">
+                      <%= f.label :last_name %><br />
+                      <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "ラストネーム" %>
+                    </div>
+                    <div class="mt-3"></div>
+                    <div class="from-group">
+                      <%= f.label :phone %><br />
+                      <%= f.text_field :phone, autofocus: true, class: "form-control", placeholder: "電話番号" %>
+                    </div>
+                    <div class="mt-5"></div>
+                    <div class="actions pb-5">
+                      <%= f.submit "新規作成", class: "btn btn-primary" %>
+                    </div>
+                  <% end %>
+                <div class="mt-5"></div>
+              </div> 
+          </div>  
+        </div>
+      </div>
+    </div>
+</div>

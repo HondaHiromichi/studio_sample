@@ -52,8 +52,8 @@ class Studio < ApplicationRecord
 
   private
 
-  def self.ransackable_scopes()
-    %i(having_all_equipmentlists_of)
-  end
+  # def self.ransackable_scopes()
+  #   %i(having_all_equipmentlists_of)
+  # end
 
 end

@@ -1,34 +1,50 @@
-<h2>アカウント新規登録</h2>
+<div class="container">
+  <div class="mt-5"></div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-12">
+        <div class="mx-auto" style="width: 600px;">
+          <div class="card">
+            <div class="card-header" >
+              <h2>アカウント新規登録</h2>
+            </div>
+              <div class="mx-auto" style="width: 500px;">
+                <div class="mt-3"></div>
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+                    <div class="from-group">
+                      <%= f.label :account_name %><br />
+                      <%= f.text_field :account_name, autofocus: true, class: "form-control", placeholder: "アカウント名" %>
+                    </div>
+                    <div class="mt-3"></div>
+                    <div class="from-group">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, class: "form-control", placeholder: "Eメール" %>
+                    </div>
+                    <div class="mt-3"></div>
+                    <div class="from-group">
+                      <%= f.label :password %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> 文字以上)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
+                    </div>
+                    <div class="mt-3"></div>
+                    <div class="from-group">
+                      <%= f.label :password_confirmation %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード確認" %>
+                    </div>
+                    <div class="mt-5"></div>
+                    <div class="actions pb-5">
+                      <%= f.submit "新規作成", class: "btn btn-primary" %>
+                    </div>
+                  <% end %>
 
-  <div class="from-group">
-    <%= f.label :account_name %><br />
-    <%= f.text_field :account_name, autofocus: true, class: "form-control col-md-5 col-sm", placeholder: "アカウント名" %>
-  </div>
-
-  <div class="from-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class: "form-control col-md-5 col-sm", placeholder: "Eメール" %>
-  </div>
-
-  <div class="from-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "パスワード" %>
-  </div>
-
-  <div class="from-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control col-md-5 col-sm", placeholder: "パスワード確認" %>
-  </div>
-
-  <div class="actions pb-5">
-    <%= f.submit "新規作成", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+                  <%= render "devise/shared/links" %>
+                <div class="mt-5"></div>
+              </div> 
+          </div>  
+        </div>
+      </div>
+    </div>
+</div>
