@@ -85,3 +85,7 @@ gem 'activeadmin'
 gem 'paperclip', '~> 5.0.0'
 
 gem 'enum_help'
+
+group :production do
+  gem 'pg'
+end
