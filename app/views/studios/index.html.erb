@@ -1,0 +1,22 @@
+<h1>スタジオ一覧</h1>
+  <td><%= link_to '新規登録', new_studio_path %></td>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">スタジオID</th>
+      <th scope="col">スタジオ名</th>
+      <th scope="col">掲載状況</th>
+      <th scope="col">更新日時</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <% @studios.each do |studio| %>
+      <tr>
+        <td><%= studio.id %></td>
+        <td><%= link_to studio.name, edit_studio_path(studio) %></td>
+        <td><%= studio.post_flag == true ? "" : "掲載中" %></td>
+        <td><%= studio.updated_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+        <td><%= link_to '削除', studio, method: :delete, data: { confirm: 'スタジオを削除しますか？' } %></td>
+      </tr>
+    <% end %>
+</table>

@@ -1,0 +1,46 @@
+  <% if current_user.try(:manager?) %>
+
+  <nav class="navbar bg-dark navbar-dark">
+    <a class="navbar-brand" href="/"><%= ApplicationHelper::APP_NAME %></a>
+
+    <ul class="nev justify-content-end">
+      <li class="nav-item">
+        <%= link_to "スタジオ一覧", studios_path, class: "nav-link text-secondary" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "プロフィールの編集", edit_user_registration_path, class: "nav-link text-secondary" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-secondary" %>
+      </li>
+    </ul>
+
+  <% elsif user_signed_in? %>
+
+  <nav class="navbar bg-dark navbar-dark">
+    <a class="navbar-brand" href="/"><%= ApplicationHelper::APP_NAME %></a>
+
+    <ul class="nev justify-content-end">
+      <li class="nav-item">
+        <%= link_to "店舗運営者新規登録", manager_edit_path, class: "nav-link text-secondary" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "プロフィールの編集", edit_user_registration_path, class: "nav-link text-secondary" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-secondary" %>
+      </li>
+    </ul>
+
+  <% else %>
+
+  <nav class="navbar bg-dark navbar-dark">
+    <a class="navbar-brand" href="/"><%= ApplicationHelper::APP_NAME %></a>
+
+    <ul class="nev justify-content-end">
+      
+      <li class="nav-item">
+        <%= link_to "ログイン/新規登録", new_user_session_path, class: "nav-link text-secondary" %>
+      </li>
+  <% end %>
+</nav>
