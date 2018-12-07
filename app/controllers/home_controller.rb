@@ -5,7 +5,8 @@ class HomeController < ApplicationController
   def index
     @q = Studio.publish.ransack(params[:q])
     @q.sorts = 'reviews_count desc' if @q.sorts.empty?
-    @studios = @q.result(distinct: true).page(params[:page]).per(PER)
+    @studio = @q.result(distinct: true)
+    @studios = @studio.page(params[:page]).per(PER)
   end
 
   def search

@@ -1,11 +1,20 @@
 <div class="container">
+<div class="mt-3 mb-3">
+</div>
+<div class="row">
+<div class="col-md-12">
+<%= image_tag "/studio.png", :size =>'1078x425', class: "img-responsive"%>
 
+</div>
+</div>
+<div class="mt-3 mb-3">
+</div>
 <div class="row">
 <div class="col-md-12">
 <div class="card" >
 
   <div class="card-header" >
-    <h1>検索</h1>
+    <h2>スタジオ検索</h2>
   </div>
   <div class="card-body" >
     <%= render 'search_form' %>
@@ -15,6 +24,15 @@
 </div>
 </div>
 </div>
+<div class="mt-5 mb-5">
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="float-right">
+  <h6>全てのスタジオ：<%= @studio.count %>件</h6>
+  </div>
+  </div>
+  </div>
 <div class="row">
 <div class="col-md-12">
 <table class="table table-bordered" style="table-layout:fixed;" >
@@ -47,5 +65,12 @@
 </table>
 </div>
 </div>
-</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="float-left">
 <%= paginate @studios %>
+</div>
+</div>
+</div>
+</div>

@@ -1,12 +1,17 @@
 <div class="container">
+<div class="mt-3 mb-3">
+</div>
+<h2>
+    ＜検索条件＞
+    </h2>
+    <div class="mt-3 mb-3">
+</div>
 <div class="row">
 <div class="col-md-12">
 <div class="card" id="sampleAccordion" >
 
   <div class="card-header" >
-    <h1>
-    検索条件:
-    </h1>
+    
     <h5>
     エリア：<% unless params[:q][:area_eq].empty? %>
     <%= params[:q][:area_eq] %>
@@ -73,11 +78,12 @@
 </div>
 </div>
 </div>
-  
+  <div class="mt-3 mb-3">
+</div>
 <div class="row">
 <div class="col-md-12">
 <div class="float-right">
-  検索結果：<%= @studio.count %>件
+  <h6>検索結果：<%= @studio.count %>件</h6>
   </div>
   </div>
   </div>

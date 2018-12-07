@@ -30,10 +30,10 @@ class Studio < ApplicationRecord
   validates :user_id, presence: true
   validates :name, :phone, :area, :station, :address, presence: true
   scope :publish, -> { where(post_flag: "0") }
-  scope :having_all_equipmentlists_of, ->(*feature_ids) {
+  scope :having_all_equipmentlists_of, ->(feature_ids) {
     joins(:features)
       .group(:studio_id)
-      .having("count(*) = ?", feature_ids )
+      .having('count(*) > 3')
   }
 
   
@@ -52,7 +52,7 @@ class Studio < ApplicationRecord
 
   private
 
-  def self.ransackable_scopes(auth_object = nil)
+  def self.ransackable_scopes()
     %i(having_all_equipmentlists_of)
   end
 
