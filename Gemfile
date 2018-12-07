@@ -94,3 +94,7 @@ gem "geocoder", '1.5.0'
 gem 'kaminari'
 
 gem 'ransack'
+
+group :production do
+  gem 'pg'
+end
