@@ -1,13 +1,16 @@
   <% if current_user.try(:manager?) %>
 
 <nav class="navbar bg-dark navbar-dark">
-  <a class="navbar-brand" href="/">Studio Compare</a>
+  <a class="navbar-brand" href="/"><%= ApplicationHelper::APP_NAME %></a>
 
   
 
   <ul class="list-inline">
   <li class="list-inline-item">
   <%= link_to "スタジオ一覧", studios_path, class: "nav-link text-light" %>
+  </li>
+  <li class="list-inline-item">
+  <%= link_to "いいね", reviews_index_path, class: "nav-link text-light" %>
   </li>
   <li class="list-inline-item">
   <%= link_to "プロフィールの編集", edit_user_registration_path, class: "nav-link text-light" %>
@@ -22,11 +25,14 @@
   <% elsif user_signed_in? %>
 
   <nav class="navbar bg-dark navbar-dark">
-    <a class="navbar-brand" href="/">Studio Compare</a>
+    <a class="navbar-brand" href="/"><%= ApplicationHelper::APP_NAME %></a>
 
     <ul class="list-inline">
       <li class="list-inline-item">
         <%= link_to "店舗運営者新規登録", manager_edit_path, class: "nav-link text-secondary text-light" %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to "いいね", reviews_index_path, class: "nav-link text-light" %>
       </li>
       <li class="list-inline-item">
         <%= link_to "プロフィールの編集", edit_user_registration_path, class: "nav-link text-secondary text-light" %>
@@ -39,7 +45,7 @@
   <% else %>
 
   <nav class="navbar bg-dark navbar-dark">
-    <a class="navbar-brand" href="/">Studio Compare</a>
+    <a class="navbar-brand" href="/"><%= ApplicationHelper::APP_NAME %></a>
 
     <ul class="list-inline">
       

@@ -1,32 +1,20 @@
 <div class="container">
-  <div class="row">
+  <div class="mt-5"></div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-12">
+        <h1>＜いいねしたスタジオ＞</h1>
+      </div>
+    </div>
+    <div class="mt-5"></div>
+    <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="mt-3"></div>
-        <%= image_tag "/studio.png", :size =>'1078x425'%>
-    </div>
-  </div> 
-  <div class="row">
-    <div class="col-xs-12 col-lg-12">
-      <div class="mt-3"></div>
-        <div class="card" >
-          <div class="card-header" >
-            <h2>スタジオ検索</h2>
-          </div>
-          <div class="card-body" >
-            <%= render 'search_form' %>
-          </div>
-        </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-lg-12">
-      <div class="mt-5"></div>
         <div class="float-right">
-          <h6>全てのスタジオ：<%= @studio.count %>件</h6>
+          <h6>スタジオ：<%= @studio.count %>件</h6>
         </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
+    <div class="row">
     <div class="col-xs-12 col-lg-12">
       <table class="table table-bordered" style="table-layout:fixed;" >
         <thead class="thead-dark">
@@ -38,8 +26,8 @@
             <th >最寄駅</th>
             <th >営業時間</th>
             <th >部屋数</th>
-            <th style="width:100px;"><%= sort_link(@q, :lowest_price, '価格') %></th>
-            <th style="width:100px;"><%= sort_link(@q, :reviews_count, 'いいね', default_order: :desc) %></th>
+            <th style="width:100px;">価格</th>
+            <th style="width:100px;">いいね</th>
           </tr>
         </thead>
           <% @studios.each do |studio| %>

@@ -1,6 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
+  PER = 20
+
+  def index
+    @studio = Studio.joins(:reviews).where(reviews: { user_id: current_user.id }).order("reviews.created_at DESC" )
+    @studios = @studio.page(params[:page]).per(PER)
+  end
+
   def create
     @review = Review.create(user_id: current_user.id, studio_id: params[:studio_id])
     @reviews = Review.where(studio_id: params[:studio_id])
