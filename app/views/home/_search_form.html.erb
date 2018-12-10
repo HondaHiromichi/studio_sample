@@ -1,18 +1,15 @@
 <%= search_form_for(@q, url:search_path) do |f| %>
 
-<body>
-    
-    <div class="container">
-    <div class="table-responsive">
+
       
       
       
-  <table class="table">
+  <table class="table" style="table-layout:fixed;">
     <form>
     <tbody>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:120px;">
       <%= f.label :area, '地域' %>
       </th>
       <td>
@@ -41,7 +38,7 @@
 
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:120px;" >
       <%= f.label :station, '最寄駅' %>
       </th>
       <td>
@@ -50,7 +47,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:120px;">
       <%= f.label :feature, '条件' %>
       </th>
       <td>
@@ -86,7 +83,7 @@
     </tr>
 
     <tr>
-      <th scope="row">
+      <th scope="row" style="width:120px;">
       <%= f.label :name_cont, 'スタジオ名' %>
       </th>
       <td>
@@ -103,9 +100,6 @@
     </tbody>
   </form>
   </table>
-</div>
-    </div>
-    
-  </body>
+
 
 <% end %>

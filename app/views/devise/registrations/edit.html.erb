@@ -14,27 +14,27 @@
                       <%= devise_error_messages! %>
 
                       <div class="form-group">
-                        <%= f.label :account_name %><br />
+                        <strong><%= f.label :account_name %></strong><br />
                         <%= f.text_field :account_name, autofocus: true, class: "form-control", placeholder: "アカウント名" %>
                       </div>
 
                       <div class="from-group">
-                        <%= f.label :email %><br />
+                        <strong><%= f.label :email %></strong><br />
                         <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Eメール" %>
                       </div>
                       <div class="mt-3"></div>
                       <div class="from-group">
-                        <%= f.label :first_name %><br />
+                        <strong><%= f.label :first_name %></strong><br />
                         <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "ファーストネーム" %>
                       </div>
                       <div class="mt-3"></div>
                       <div class="from-group">
-                        <%= f.label :last_name %><br />
+                        <strong><%= f.label :last_name %></strong><br />
                         <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "ラストネーム" %>
                       </div>
                       <div class="mt-3"></div>
                       <div class="from-group">
-                        <%= f.label :phone %><br />
+                        <strong><%= f.label :phone %></strong><br />
                         <%= f.text_field :phone, autofocus: true, class: "form-control", placeholder: "電話番号" %>
                       </div>
 
@@ -43,19 +43,19 @@
                       <% end %>
                       <div class="mt-3"></div>
                       <div class="from-group">
-                        <%= f.label :password %> <i>(変更したくない場合は空白のままにしてください)</i><br />
+                        <strong><%= f.label :password %></strong> <i class="text-muted">(変更したくない場合は空白のままにしてください)</i><br />
                         <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
                         
                       </div>
                       <div class="mt-3"></div>
                       <div class="from-group">
-                        <%= f.label :password_confirmation %><br />
+                        <strong><%= f.label :password_confirmation %></strong><br />
                         <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード再確認" %>
                       </div>
 
                       <% if false %>
                         <div class="from-group">
-                          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                          <strong><%= f.label :current_password %> <i class="text-muted">(we need your current password to confirm your changes)</i></strong><br />
                           <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
                         </div>
                       <% end %>
@@ -74,12 +74,12 @@
                         <%= devise_error_messages! %>
 
                         <div class="form-group">
-                          <%= f.label :account_name %><br />
+                          <strong><%= f.label :account_name %></strong><br />
                           <%= f.text_field :account_name, autofocus: true, class: "form-control", placeholder: "アカウント名" %>
                         </div>
 
                         <div class="from-group">
-                          <%= f.label :email %><br />
+                          <strong><%= f.label :email %></strong><br />
                           <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Eメール" %>
                         </div>
 
@@ -88,18 +88,18 @@
                         <% end %>
                         <div class="mt-3"></div>
                         <div class="from-group">
-                          <%= f.label :password %> <i>(変更したくない場合は空白のままにしてください)</i><br />
+                          <strong><%= f.label :password %></strong> <i class="text-muted">(変更したくない場合は空白のままにしてください)</i><br />
                           <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
                         </div>
                         <div class="mt-3"></div>
                         <div class="from-group">
-                          <%= f.label :password_confirmation %><br />
+                          <strong><%= f.label :password_confirmation %></strong><br />
                           <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード再確認" %>
                         </div>
 
                         <% if false %>
                           <div class="from-group">
-                            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                            <strong><%= f.label :current_password %></strong> <i class="text-muted">(we need your current password to confirm your changes)</i><br />
                             <%= f.password_field :current_password, autocomplete: "current-password" %>
                           </div>
                         <% end %>

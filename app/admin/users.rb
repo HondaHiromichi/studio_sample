@@ -1,9 +1,9 @@
 ActiveAdmin.register User do
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :id, :email, :account_name, :phone, :information, :lowest_price, :price,
-    :business_hours, :room, :url, :address, :sorroundings, :etc, :post_flag, :latitude, :longitude
+permit_params :email, :account_name, :first_name, :last_name, :phone, :role
 # permit_params :list, :of, :attributes, :on, :model
 #
 # or
