@@ -5,9 +5,16 @@
         <h1>編集</h1>
       </div>
     </div>
+    <div class="mt-3"></div>
     <div class="row">
       <div class="col-xs-12 col-lg-12">
-        <div class="mt-5"></div>
+        <h6 class= "text-danger">※ 赤字は入力必須項目です</h6>
+      </div>
+    </div>
+    <div class="mt-3"></div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-12">
+        
           <%= form_with(model: @studio, local: true) do |form| %>
             <% if @studio.errors.any? %>
               <div id="error_explanation">
@@ -24,7 +31,7 @@
             <body>
               
               <div class="container">
-              <div class="table-responsive">
+              <div class="table" style="table-layout:fixed;">
                 
                 
                 
@@ -32,17 +39,17 @@
               <form>
               <tbody>
                 <tr>
-                <th scope="row">
+                <th scope="row" style="width:140px;">
                 <%= form.label :post_flag %>
                 </th>
                 <td>
-                <%= form.check_box :post_flag %> （ ※掲載を解除する場合はこちらにチェックを入れてください）
+                <%= form.check_box :post_flag %> （ 掲載を解除する場合はチェックを入れてください ）
                 </td>
                 </tr>
 
                 <tr>
                 <th scope="row">
-                <%= form.label :name %>
+                <%= form.label :name, class: "text-danger" %>
                 </th>
                 <td>
                 <%= form.text_field :name, class: "form-control" %>
@@ -51,7 +58,7 @@
 
                 <tr>
                 <th scope="row">
-                <%= form.label :phone %>
+                <%= form.label :phone, class: "text-danger" %>
                 </th>
                 <td>
                 <%= form.text_field :phone, class: "form-control" %>
@@ -66,9 +73,9 @@
                 <div class="field_1">
               
                 <% if @studio.images.find_by(sequence: '1').image_file_name == "" %>
-                  <%= image_tag ("/missing.png") %>
+                  <%= image_tag ("/missing.png"), :size =>'200x200' %>
                 <% else %>
-                  <%= image_tag @studio.images.find_by(sequence: '1').image.url %>
+                  <%= image_tag @studio.images.find_by(sequence: '1').image.url, :size =>'200x200' %>
                 <% end %>
                   
                 <input type="checkbox" value="" name="studio[images_attributes][0][image_file_name]" id="studio_images_attributes_0_image_file_name">
@@ -91,9 +98,9 @@
                 <div class="field_2">
 
                 <% if @studio.images.find_by(sequence: '2').image_file_name == "" %>
-                  <%= image_tag ("/missing.png") %>
+                  <%= image_tag ("/missing.png"), :size =>'200x200' %>
                 <% else %>
-                  <%= image_tag @studio.images.find_by(sequence: '2').image.url %>
+                  <%= image_tag @studio.images.find_by(sequence: '2').image.url, :size =>'200x200' %>
                 <% end %>
 
                 <input type="checkbox" value="" name="studio[images_attributes][1][image_file_name]" id="studio_images_attributes_1_image_file_name">
@@ -117,9 +124,9 @@
                 <div class="field_3">
 
                 <% if @studio.images.find_by(sequence: '3').image_file_name == "" %>
-                  <%= image_tag ("/missing.png") %>
+                  <%= image_tag ("/missing.png"), :size =>'200x200' %>
                 <% else %>
-                  <%= image_tag @studio.images.find_by(sequence: '3').image.url %>
+                  <%= image_tag @studio.images.find_by(sequence: '3').image.url, :size =>'200x200' %>
                 <% end %>
 
                 <input type="checkbox" value="" name="studio[images_attributes][2][image_file_name]" id="studio_images_attributes_2_image_file_name">
@@ -143,9 +150,9 @@
                 <div class="field_4">
 
                 <% if @studio.images.find_by(sequence: '4').image_file_name == "" %>
-                  <%= image_tag ("/missing.png") %>
+                  <%= image_tag ("/missing.png"), :size =>'200x200' %>
                 <% else %>
-                  <%= image_tag @studio.images.find_by(sequence: '4').image.url %>
+                  <%= image_tag @studio.images.find_by(sequence: '4').image.url, :size =>'200x200' %>
                 <% end %>
 
                 <input type="checkbox" value="" name="studio[images_attributes][3][image_file_name]" id="studio_images_attributes_3_image_file_name">
@@ -172,7 +179,7 @@
 
                 <tr>
                 <th scope="row">
-                <%= form.label :area %>
+                <%= form.label :area, class: "text-danger" %>
                 </th>
                 <td>
                 <%= form.select :area, [["北海道", "北海道"], ["北陸、甲信越", "北陸、甲信越"], ["北関東", "北関東"], ["首都圏", "首都圏"], ["東海", "東海"], ["関西", "関西"], ["中国", "中国"], ["四国", "四国"], ["沖縄", "沖縄"]], {}, {class: 'form-control'}%>
@@ -181,7 +188,7 @@
 
                 <tr>
                 <th scope="row">
-                <%= form.label :station %>
+                <%= form.label :station, class: "text-danger" %>
                 </th>
                 <td>
                 <%= form.text_field :station, class: "form-control" %>
@@ -208,7 +215,7 @@
 
                 <tr>
                 <th scope="row">
-                <%= form.label :lowest_price %>
+                <%= form.label :lowest_price, class: "text-danger" %>
                 </th>
                 <td>
                 <%= form.text_field :lowest_price, class: "form-control" %>
@@ -248,7 +255,7 @@
               <% else %>
                 <input type="checkbox" value="parking" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature" >
               <% end %>
-                <label for="studio_features_attributes_2_feature">駐車場あり</label>
+                <label for="studio_features_attributes_2_feature">駐車場あり</label><br />
 
               <% if @studio.features.pluck(:feature).include?("rental") %>
                 <input type="checkbox" value="rental" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature" checked="checked" >
@@ -269,14 +276,14 @@
               <% else %>
                 <input type="checkbox" value="web" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature" >
               <% end %>
-                <label for="studio_features_attributes_5_feature">Web予約可</label>
+                <label for="studio_features_attributes_5_feature">Web予約可</label><br />
 
               <% if @studio.features.pluck(:feature).include?("convenience") %>
                 <input type="checkbox" value="convenience" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" checked="checked" >
               <% else %>
                 <input type="checkbox" value="convenience" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" >
               <% end %>
-                <label for="studio_features_attributes_6_feature">コンビニあり</label><br />
+                <label for="studio_features_attributes_6_feature">コンビニあり</label>
 
               <% if @studio.features.pluck(:feature).include?("restaurant") %>
                 <input type="checkbox" value="restaurant" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature" checked="checked" >
@@ -290,7 +297,7 @@
               <% else %>
                 <input type="checkbox" value="break" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature" >
               <% end %>
-                <label for="studio_features_attributes_8_feature">休憩スペースあり</label>
+                <label for="studio_features_attributes_8_feature">休憩スペースあり</label><br />
 
               <% if @studio.features.pluck(:feature).include?("smoking") %>
                 <input type="checkbox" value="smoking" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature" checked="checked" >
@@ -311,7 +318,7 @@
               <% else %>
                 <input type="checkbox" value="piano" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature" >
               <% end %>
-                <label for="studio_features_attributes_11_feature">生ピアノあり</label>
+                <label for="studio_features_attributes_11_feature">生ピアノあり</label><br />
               
               <% if @studio.features.pluck(:feature).include?("live") %>
                 <input type="checkbox" value="live" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature" checked="checked" >
@@ -325,7 +332,7 @@
 
                 <tr>
                 <th scope="row">
-                <%= form.label :address %>
+                <%= form.label :address, class: "text-danger" %>
                 </th>
                 <td>
                 <%= form.text_field :address, class: "form-control" %>

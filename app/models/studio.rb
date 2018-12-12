@@ -28,7 +28,7 @@ class Studio < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :features
   validates :user_id, presence: true
-  validates :name, :phone, :area, :station, :address, presence: true
+  validates :name, :phone, :area, :station, :address, :lowest_price, presence: true
   scope :publish, -> { where(post_flag: "0") }
   scope :having_all_equipmentlists_of, ->(feature_ids) {
     joins(:features)
