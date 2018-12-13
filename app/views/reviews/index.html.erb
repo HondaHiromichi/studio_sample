@@ -1,13 +1,13 @@
 <div class="container">
   <div class="mt-5"></div>
     <div class="row">
-      <div class="col-xs-12 col-lg-12">
+      <div class="col-md-12">
         <h1>＜いいねしたスタジオ＞</h1>
       </div>
     </div>
     <div class="mt-5"></div>
     <div class="row">
-    <div class="col-xs-12 col-lg-12">
+    <div class="col-md-12">
       <div class="mt-3"></div>
         <div class="float-right">
           <h6>スタジオ：<%= @studio.count %>件</h6>
@@ -15,16 +15,14 @@
       </div>
     </div>
     <div class="row">
-    <div class="col-xs-12 col-lg-12">
+    <div class="col-md-12">
       <table class="table table-bordered" style="table-layout:fixed;" >
         <thead class="thead-dark">
           <tr>
             <th style="width:80px;">写真</th>
-            <th style="width:200px;">スタジオ名</th>
-            <th >電話番号</th>
-            <th >最寄駅</th>
-            <th >営業時間</th>
-            <th >部屋数</th>
+            <th>スタジオ名</th>
+            <th>最寄駅</th>
+            <th>営業時間</th>
             <th style="width:100px;">価格</th>
             <th style="width:100px;">いいね</th>
           </tr>
@@ -33,10 +31,8 @@
             <tr>
               <td class="table-secondary align-middle"><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
               <td class="table-secondary align-middle"><%= link_to studio.name, home_path(studio), class: "text-dark" %></td>
-              <td class="table-secondary align-middle"><%= studio.phone %></td>
               <td class="table-secondary align-middle"><%= studio.station %></td>
               <td class="table-secondary align-middle"><%= studio.business_hours %></td>
-              <td class="table-secondary align-middle"><%= studio.room %></td>
               <td class="table-secondary align-middle">￥<%= studio.lowest_price %>〜</td>
               <td class="table-secondary align-middle"><%= studio.reviews_count %></td>
             </tr>
@@ -45,7 +41,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-lg-12">
+    <div class="col-md-12">
       <div class="float-left">
         <%= paginate @studios %>
       </div>
