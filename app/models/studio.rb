@@ -30,10 +30,11 @@ class Studio < ApplicationRecord
   validates :user_id, presence: true
   validates :name, :phone, :area, :station, :address, :lowest_price, presence: true
   scope :publish, -> { where(post_flag: "0") }
-  scope :having_all_equipmentlists_of, ->(feature_ids) {
+  scope :having_all_features_of, ->(*feature_ids) {
     joins(:features)
+      .where("feature IN (?)" ,feature_ids)
       .group(:studio_id)
-      .having('count(*) > 3')
+      .having("count(*) = ?", feature_ids.count)
   }
 
   
@@ -50,10 +51,10 @@ class Studio < ApplicationRecord
     reviews.find_by(user_id: user_id)
   end
 
-  private
+  
 
-  # def self.ransackable_scopes()
-  #   %i(having_all_equipmentlists_of)
-  # end
+  def self.ransackable_scopes(auth_object = nil)
+    %i(having_all_features_of)
+  end
 
 end

@@ -13,44 +13,46 @@
                   最寄駅：<% unless params[:q][:station_cont].empty? %>
                           <%= params[:q][:station_cont] %>
                         <% end %><br/>
-                  条件：<% if params[:q][:features_feature_in].include?("0") %>
+                    条件：<% unless params[:q][:having_all_features_of].blank? %>
+                        <% if params[:q][:having_all_features_of].include?("0") %>
                           レコーディング可
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("1")%>
+                        <% if params[:q][:having_all_features_of].include?("1")%>
                           徒歩5分以内
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("2")%>
+                        <% if params[:q][:having_all_features_of].include?("2")%>
                           駐車場あり
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("3")%>
+                        <% if params[:q][:having_all_features_of].include?("3")%>
                           レンタルあり
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("4")%>
+                        <% if params[:q][:having_all_features_of].include?("4")%>
                           パック料金あり
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("5")%>
+                        <% if params[:q][:having_all_features_of].include?("5")%>
                           Web予約可
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("6")%>
+                        <% if params[:q][:having_all_features_of].include?("6")%>
                           コンビニあり
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("7")%>
+                        <% if params[:q][:having_all_features_of].include?("7")%>
                           飲食店あり
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("8")%>
+                        <% if params[:q][:having_all_features_of].include?("8")%>
                           休憩スペースあり
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("9")%>
+                        <% if params[:q][:having_all_features_of].include?("9")%>
                           スタジオ内喫煙可
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("10")%>
+                        <% if params[:q][:having_all_features_of].include?("10")%>
                           スタジオ内飲食可
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("11")%>
+                        <% if params[:q][:having_all_features_of].include?("11")%>
                           生ピアノあり
                         <% end %>
-                        <% if params[:q][:features_feature_in].include?("12")%>
+                        <% if params[:q][:having_all_features_of].include?("12")%>
                           スタジオライブ可
+                        <% end %>
                         <% end %><br/>
                         スタジオ名：<% unless params[:q][:name_cont].empty? %>
                           <%= params[:q][:name_cont] %><br/>
@@ -72,7 +74,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="float-right">
-              <h6>検索結果：<%= @studio.count %>件</h6>
+              
             </div>
           </div>
           </div>
