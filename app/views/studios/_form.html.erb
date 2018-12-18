@@ -1,7 +1,7 @@
 <%= form_with(model: studio, local: true) do |form| %>
   <% if studio.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(studio.errors.count, "error") %> prohibited this studio from being saved:</h2>
+      <h2><%= pluralize(studio.errors.count, "件") %> のエラーが発生したためスタジオは保存されませんでした</h2>
       <ul>
       <% studio.errors.full_messages.each do |message| %>
         <li><%= message %></li>
