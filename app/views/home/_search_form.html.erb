@@ -1,111 +1,165 @@
 <%= search_form_for(@q, url:search_path) do |f| %>
-
-<body>
-    
-    <div class="container">
-    <div class="table-responsive">
-      
-      
-      
-  <table class="table">
-    <form>
-    <tbody>
-
-    <tr>
-      <th scope="row">
-      <%= f.label :area, '地域' %>
-      </th>
-      <td>
-      <%= f.radio_button :area_eq, '', {:checked => true} %>
-      <%= f.label :area_eq, '指定なし' %>
-      <%= f.radio_button :area_eq, '北海道' %>
-      <%= f.label :area_eq, '北海道' %>
-      <%= f.radio_button :area_eq, '北陸、甲信越' %>
-      <%= f.label :area_eq, '北陸、甲信越' %>
-      <%= f.radio_button :area_eq, '北関東' %>
-      <%= f.label :area_eq, '北関東' %>
-      <%= f.radio_button :area_eq, '首都圏' %>
-      <%= f.label :area_eq, '首都圏' %>
-      <%= f.radio_button :area_eq, '東海' %>
-      <%= f.label :area_eq, '東海' %>
-      <%= f.radio_button :area_eq, '関西' %>
-      <%= f.label :area_eq, '関西' %>
-      <%= f.radio_button :area_eq, '中国' %>
-      <%= f.label :area_eq, '中国' %>
-      <%= f.radio_button :area_eq, '四国' %>
-      <%= f.label :area_eq, '四国' %>
-      <%= f.radio_button :area_eq, '沖縄' %>
-      <%= f.label :area_eq, '沖縄' %>
-      </td>
-    </tr>
-
-
-    <tr>
-      <th scope="row">
-      <%= f.label :station, '最寄駅' %>
-      </th>
-      <td>
-      <%= f.search_field :station_cont, class: "form-control" %>
-      </td>
-    </tr>
-
-    <tr>
-      <th scope="row">
-      <%= f.label :feature, '条件' %>
-      </th>
-      <td>
-      <%= f.check_box :features_feature_in , { multiple: true }, 0, '' %>
-      <%= f.label :features_feature_in_0, 'レコーディング可' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 1, '' %>
-      <%= f.label :features_feature_in_1, '徒歩5分以内' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 2, '' %>
-      <%= f.label :features_feature_in_2, '駐車場あり' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 3, '' %>
-      <%= f.label :features_feature_in_3, 'レンタルあり' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 4, '' %>
-      <%= f.label :features_feature_in_4, 'パック料金あり' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 5, '' %>
-      <%= f.label :features_feature_in_5, 'Web予約可' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 6, '' %>
-      <%= f.label :features_feature_in_6, 'コンビニあり' %><br/>
-      <%= f.check_box :features_feature_in , { multiple: true }, 7, '' %>
-      <%= f.label :features_feature_in_7, '飲食店あり' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 8, '' %>
-      <%= f.label :features_feature_in_8, '休憩スペースあり' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 9, '' %>
-      <%= f.label :features_feature_in_9, 'スタジオ内喫煙可' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 10, '' %>
-      <%= f.label :features_feature_in_10, 'スタジオ内飲食可' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 11, '' %>
-      <%= f.label :features_feature_in_11, '生ピアノあり' %>
-      <%= f.check_box :features_feature_in , { multiple: true }, 12, '' %>
-      <%= f.label :features_feature_in_12, 'スタジオライブ可' %>
-      
-      
-      </td>
-    </tr>
-
-    <tr>
-      <th scope="row">
-      <%= f.label :name_cont, 'スタジオ名' %>
-      </th>
-      <td>
-      <%= f.search_field :name_cont, class: "form-control" %>
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2" class="text-center submit">
-      <input type="submit" name="commit" value="検索" data-disable-with="検索" class="btn btn-secondary">
-      </td>
-    </tr>
-
+<table class="table" style="table-layout:fixed;">
+        <tr>
+          <th scope="row" style="width:120px;">
+            <%= f.label :area, '地域' %>
+          </th>
+          <td>
+            <%= f.radio_button :area_eq, '', {:checked => true} %>
+            <%= f.label :area_eq_, '指定なし' %>
+            <%= f.radio_button :area_eq, '北海道' %>
+            <%= f.label :area_eq_北海道, '北海道' %>
+            <%= f.radio_button :area_eq, '北陸、甲信越' %>
+            <%= f.label :area_eq_北陸甲信越, '北陸、甲信越' %>
+            <%= f.radio_button :area_eq, '北関東' %>
+            <%= f.label :area_eq_北関東, '北関東' %><br />
+            <%= f.radio_button :area_eq, '首都圏' %>
+            <%= f.label :area_eq_首都圏, '首都圏' %>
+            <%= f.radio_button :area_eq, '東海' %>
+            <%= f.label :area_eq_東海, '東海' %>
+            <%= f.radio_button :area_eq, '関西' %>
+            <%= f.label :area_eq_関西, '関西' %>
+            <%= f.radio_button :area_eq, '中国' %>
+            <%= f.label :area_eq_中国, '中国' %>
+            <%= f.radio_button :area_eq, '四国' %>
+            <%= f.label :area_eq_四国, '四国' %>
+            <%= f.radio_button :area_eq, '沖縄' %>
+            <%= f.label :area_eq_沖縄, '沖縄' %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" style="width:120px;" >
+            <%= f.label :station, '最寄駅' %>
+          </th>
+          <td>
+            <%= f.search_field :station_cont, class: "form-control" %>
+          </td>
+        </tr>
+          <tr>
+            <th scope="row" style="width:120px;">
+              <%= f.label :feature, '条件' %>
+            </th>
+            <td>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of, { multiple: true }, 0, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("0") %>
+                <%= f.check_box :having_all_features_of, { multiple: true, :checked => true }, 0, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of, { multiple: true }, 0, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_0, 'レコーディング可' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 1, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("1") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 1, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 1, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_1, '徒歩5分以内' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 2, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("2") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 2, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 2, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_2, '駐車場あり' %><br />
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 3, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("3") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 3, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 3, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_3, 'レンタルあり' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 4, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("4") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 4, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 4, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_4, 'パック料金あり' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 5, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("5") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 5, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 5, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_5, 'Web予約可' %><br />
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 6, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("6") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 6, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 6, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_6, 'コンビニあり' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 7, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("7") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 7, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 7, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_7, '飲食店あり' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 8, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("8") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 8, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 8, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_8, '休憩スペースあり' %><br />
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 9, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("9") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 9, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 9, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_9, 'スタジオ内喫煙可' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 10, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("10") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 10, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 10, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_10, 'スタジオ内飲食可' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 11, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("11") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 11, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 11, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_11, '生ピアノあり' %><br />
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 12, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("12") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 12, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 12, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_12, 'スタジオライブ可' %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" style="width:120px;">
+              <%= f.label :name_cont, 'スタジオ名' %>
+            </th>
+            <td>
+              <%= f.search_field :name_cont, class: "form-control" %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center submit">
+              <input type="submit" name="commit" value="検索" data-disable-with="検索" class="btn btn-secondary">
+            </td>
+          </tr>
+      <% end %>
     </tbody>
   </form>
-  </table>
-</div>
-    </div>
-    
-  </body>
-
-<% end %>
+</table>

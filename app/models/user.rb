@@ -34,6 +34,7 @@ class User < ApplicationRecord
   has_many :studios, dependent: :destroy
   has_many :reviews, dependent: :destroy
   validates :account_name, presence: true, uniqueness: true, length: { minimum: 1 }
+  validates :email, presence: true
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

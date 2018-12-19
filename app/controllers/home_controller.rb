@@ -23,7 +23,7 @@ class HomeController < ApplicationController
   private
 
   def search_params
-    params.require(:q).permit(:name_cont, :station_cont, :area_eq, :s, features_feature_in: [])
+    params.require(:q).permit(:name_cont, :station_cont, :area_eq, :s, having_all_features_of: [])
   end
 
 end
