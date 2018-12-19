@@ -1,5 +1,5 @@
 module ApplicationHelper
-  APP_NAME = 'Rails Sample App'.freeze
+  APP_NAME = 'Studio Compare'.freeze
   def page_title
     base_title = APP_NAME
     return base_title if @title.blank?

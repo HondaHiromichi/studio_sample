@@ -1,76 +1,147 @@
 <div class="container">
-<div class="mt-3 mb-3">
-</div>
-<div class="row">
-<div class="col-md-12">
-<%= image_tag "/studio.png", :size =>'1078x425', class: "img-responsive"%>
-
-</div>
-</div>
-<div class="mt-3 mb-3">
-</div>
-<div class="row">
-<div class="col-md-12">
-<div class="card" >
-
-  <div class="card-header" >
-    <h2>スタジオ検索</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mt-3"></div>
+        <%= image_tag "/studio.png", class: "img-fluid"%>
+    </div>
+  </div> 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mt-3"></div>
+        <div class="card" >
+          <div class="card-header" >
+            <h2>スタジオ検索</h2>
+          </div>
+          <div class="card-body" >
+            <%= search_form_for(@q, url:search_path) do |f| %>
+              <table class="table" style="table-layout:fixed;">
+                <tr>
+                  <th scope="row" style="width:120px;">
+                    <%= f.label :area, '地域' %>
+                  </th>
+                  <td>
+                    <%= f.radio_button :area_eq, '', {:checked => true} %>
+                    <%= f.label :area_eq_, '指定なし' %>
+                    <%= f.radio_button :area_eq, '北海道' %>
+                    <%= f.label :area_eq_北海道, '北海道' %>
+                    <%= f.radio_button :area_eq, '北陸、甲信越' %>
+                    <%= f.label :area_eq_北陸甲信越, '北陸、甲信越' %>
+                    <%= f.radio_button :area_eq, '北関東' %>
+                    <%= f.label :area_eq_北関東, '北関東' %><br />
+                    <%= f.radio_button :area_eq, '首都圏' %>
+                    <%= f.label :area_eq_首都圏, '首都圏' %>
+                    <%= f.radio_button :area_eq, '東海' %>
+                    <%= f.label :area_eq_東海, '東海' %>
+                    <%= f.radio_button :area_eq, '関西' %>
+                    <%= f.label :area_eq_関西, '関西' %>
+                    <%= f.radio_button :area_eq, '中国' %>
+                    <%= f.label :area_eq_中国, '中国' %>
+                    <%= f.radio_button :area_eq, '四国' %>
+                    <%= f.label :area_eq_四国, '四国' %>
+                    <%= f.radio_button :area_eq, '沖縄' %>
+                    <%= f.label :area_eq_沖縄, '沖縄' %>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" style="width:120px;" >
+                    <%= f.label :station, '最寄駅' %>
+                  </th>
+                  <td>
+                    <%= f.search_field :station_cont, class: "form-control" %>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" style="width:120px;">
+                    <%= f.label :feature, '条件' %>
+                  </th>
+                  <td>
+                    <%= f.check_box :having_all_features_of, { multiple: true }, 0, nil %>
+                    <%= f.label :having_all_features_of_0, 'レコーディング可' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 1, nil %>
+                    <%= f.label :having_all_features_of_1, '徒歩5分以内' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 2, nil %>
+                    <%= f.label :having_all_features_of_2, '駐車場あり' %><br />
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 3, nil %>
+                    <%= f.label :having_all_features_of_3, 'レンタルあり' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 4, nil %>
+                    <%= f.label :having_all_features_of_4, 'パック料金あり' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 5, nil %>
+                    <%= f.label :having_all_features_of_5, 'Web予約可' %><br />
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 6, nil %>
+                    <%= f.label :having_all_features_of_6, 'コンビニあり' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 7, nil %>
+                    <%= f.label :having_all_features_of_7, '飲食店あり' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 8, nil %>
+                    <%= f.label :having_all_features_of_8, '休憩スペースあり' %><br />
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 9, nil %>
+                    <%= f.label :having_all_features_of_9, 'スタジオ内喫煙可' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 10, nil %>
+                    <%= f.label :having_all_features_of_10, 'スタジオ内飲食可' %>
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 11, nil %>
+                    <%= f.label :having_all_features_of_11, '生ピアノあり' %><br />
+                    <%= f.check_box :having_all_features_of , { multiple: true }, 12, nil %>
+                    <%= f.label :having_all_features_of_12, 'スタジオライブ可' %>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" style="width:120px;">
+                    <%= f.label :name_cont, 'スタジオ名' %>
+                  </th>
+                  <td>
+                    <%= f.search_field :name_cont, class: "form-control" %>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="text-center submit">
+                    <input type="submit" name="commit" value="検索" data-disable-with="検索" class="btn btn-secondary">
+                  </td>
+                </tr>
+              </table>
+            <% end %>
+          </div>
+        </div>
+    </div>
   </div>
-  <div class="card-body" >
-    <%= render 'search_form' %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mt-5"></div>
+        <div class="float-right">
+          <h6>全てのスタジオ：<%= @studio.count %>件</h6>
+        </div>
+    </div>
   </div>
-  
-  
-</div>
-</div>
-</div>
-<div class="mt-5 mb-5">
-</div>
-<div class="row">
-<div class="col-md-12">
-<div class="float-right">
-  <h6>全てのスタジオ：<%= @studio.count %>件</h6>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered" style="table-layout:fixed;" >
+          <thead class="thead-dark">
+            <tr>
+              <th style="width:80px;">写真</th>
+              <th>スタジオ名</th>
+              <th>最寄駅</th>
+              <th>営業時間</th>
+              <th style="width:100px;"><%= sort_link(@q, :lowest_price, '価格') %></th>
+              <th style="width:100px;"><%= sort_link(@q, :reviews_count, 'いいね', default_order: :desc) %></th>
+            </tr>
+          </thead>
+            <% @studios.each do |studio| %>
+              <tr>
+                <td class="table-secondary align-middle"><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
+                <td class="table-secondary align-middle"><%= link_to studio.name, home_path(studio), class: "text-dark" %></td>
+                <td class="table-secondary align-middle"><%= studio.station %></td>
+                <td class="table-secondary align-middle"><%= studio.business_hours %></td>
+                <td class="table-secondary align-middle">￥<%= studio.lowest_price %>〜</td>
+                <td class="table-secondary align-middle"><%= studio.reviews_count %></td>
+              </tr>
+            <% end %>
+        </table>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="float-left">
+        <%= paginate @studios %>
+      </div>
+    </div>
   </div>
-  </div>
-<div class="row">
-<div class="col-md-12">
-<table class="table table-bordered" style="table-layout:fixed;" >
-  <thead class="thead-dark">
-    <tr>
-      <th style="width:80px;">写真</th>
-      <th style="width:200px;">スタジオ名</th>
-      <th >電話番号</th>
-      <th >エリア</th>
-      <th >最寄駅</th>
-      <th >営業時間</th>
-      <th >部屋数</th>
-      <th style="width:100px;"><%= sort_link(@q, :lowest_price, '価格') %></th>
-      <th style="width:100px;"><%= sort_link(@q, :reviews_count, 'いいね', default_order: :desc) %></th>
-    </tr>
-  </thead>
-    <% @studios.each do |studio| %>
-      <tr>
-        <td class="table-secondary"><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
-        <td class="table-secondary"><%= link_to studio.name, home_path(studio), class: "text-dark" %></td>
-        <td class="table-secondary"><%= studio.phone %></td>
-        <td class="table-secondary"><%= studio.area %></td>
-        <td class="table-secondary"><%= studio.station %></td>
-        <td class="table-secondary"><%= studio.business_hours %></td>
-        <td class="table-secondary"><%= studio.room %></td>
-        <td class="table-secondary">￥<%= studio.lowest_price %>〜</td>
-        <td class="table-secondary"><%= studio.reviews_count %></td>
-      </tr>
-    <% end %>
-</table>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-12">
-<div class="float-left">
-<%= paginate @studios %>
-</div>
-</div>
-</div>
+  <div class="mt-3"></div>
 </div>

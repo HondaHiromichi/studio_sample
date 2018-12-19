@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :home, :except => :index
   ActiveAdmin.routes(self)
   root 'home#index'
+  get 'reviews/index', to: 'reviews#index', as: 'reviews_index'
   get 'search', to: 'home#search'
   devise_for :users, :controllers => {:registrations => 'users/registrations'}
   devise_scope :user do
