@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
-  PER = 20
+  PER = 10
 
   def index
     @studio = Studio.joins(:reviews).where(reviews: { user_id: current_user.id }).order("reviews.created_at DESC" )
