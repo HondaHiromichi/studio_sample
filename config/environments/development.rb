@@ -59,12 +59,12 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
-  host = 'studio-compare'
+  host = 'studio-compare.herokuapp.com'
 
   Rails.application.routes.default_url_options[:host] = host
 
   config.action_mailer.default_url_options = {
-    host: "studio-compare"
+    host: "studio-compare.herokuapp.com"
   }
 
   config.action_mailer.delivery_method = :smtp
