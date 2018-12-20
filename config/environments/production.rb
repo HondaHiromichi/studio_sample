@@ -95,4 +95,17 @@ Rails.application.configure do
   host = 'studio-compare'
 
   Rails.application.routes.default_url_options[:host] = host
+
+  config.action_mailer.default_url_options = {
+    host: "studio-compare"
+  }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: :plain,
+    user_name: 'hiro940414@gmail.com',
+    password: 'hh51530414'
+  }
 end
