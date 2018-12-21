@@ -41,29 +41,13 @@
             </th>
             <td>
               <% if params[:q][:having_all_features_of].blank? %>
-                <%= f.check_box :having_all_features_of, { multiple: true }, 0, nil %>
-              <% elsif params[:q][:having_all_features_of].include?("0") %>
-                <%= f.check_box :having_all_features_of, { multiple: true, :checked => true }, 0, nil %>
-              <% else %>
-                <%= f.check_box :having_all_features_of, { multiple: true }, 0, nil %>
-              <% end %>
-                <%= f.label :having_all_features_of_0, 'レコーディング可' %>
-              <% if params[:q][:having_all_features_of].blank? %>
-                <%= f.check_box :having_all_features_of , { multiple: true }, 1, nil %>
-              <% elsif params[:q][:having_all_features_of].include?("1") %>
-                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 1, nil %>
-              <% else %>
-                <%= f.check_box :having_all_features_of , { multiple: true }, 1, nil %>
-              <% end %>
-                <%= f.label :having_all_features_of_1, '徒歩5分以内' %>
-              <% if params[:q][:having_all_features_of].blank? %>
-                <%= f.check_box :having_all_features_of , { multiple: true }, 2, nil %>
+                <%= f.check_box :having_all_features_of, { multiple: true }, 2, nil %>
               <% elsif params[:q][:having_all_features_of].include?("2") %>
-                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 2, nil %>
+                <%= f.check_box :having_all_features_of, { multiple: true, :checked => true }, 2, nil %>
               <% else %>
-                <%= f.check_box :having_all_features_of , { multiple: true }, 2, nil %>
+                <%= f.check_box :having_all_features_of, { multiple: true }, 2, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_2, '駐車場あり' %><br />
+                <%= f.label :having_all_features_of_2, 'レコーディング可' %>
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 3, nil %>
               <% elsif params[:q][:having_all_features_of].include?("3") %>
@@ -71,7 +55,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 3, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_3, 'レンタルあり' %>
+                <%= f.label :having_all_features_of_3, '徒歩5分以内' %>
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 4, nil %>
               <% elsif params[:q][:having_all_features_of].include?("4") %>
@@ -79,7 +63,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 4, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_4, 'パック料金あり' %>
+                <%= f.label :having_all_features_of_4, '駐車場あり' %><br />
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 5, nil %>
               <% elsif params[:q][:having_all_features_of].include?("5") %>
@@ -87,7 +71,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 5, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_5, 'Web予約可' %><br />
+                <%= f.label :having_all_features_of_5, 'レンタルあり' %>
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 6, nil %>
               <% elsif params[:q][:having_all_features_of].include?("6") %>
@@ -95,7 +79,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 6, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_6, 'コンビニあり' %>
+                <%= f.label :having_all_features_of_6, 'パック料金あり' %>
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 7, nil %>
               <% elsif params[:q][:having_all_features_of].include?("7") %>
@@ -103,7 +87,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 7, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_7, '飲食店あり' %>
+                <%= f.label :having_all_features_of_7, 'Web予約可' %><br />
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 8, nil %>
               <% elsif params[:q][:having_all_features_of].include?("8") %>
@@ -111,7 +95,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 8, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_8, '休憩スペースあり' %><br />
+                <%= f.label :having_all_features_of_8, 'コンビニあり' %>
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 9, nil %>
               <% elsif params[:q][:having_all_features_of].include?("9") %>
@@ -119,7 +103,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 9, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_9, 'スタジオ内喫煙可' %>
+                <%= f.label :having_all_features_of_9, '飲食店あり' %>
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 10, nil %>
               <% elsif params[:q][:having_all_features_of].include?("10") %>
@@ -127,7 +111,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 10, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_10, 'スタジオ内飲食可' %>
+                <%= f.label :having_all_features_of_10, '休憩スペースあり' %><br />
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 11, nil %>
               <% elsif params[:q][:having_all_features_of].include?("11") %>
@@ -135,7 +119,7 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 11, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_11, '生ピアノあり' %><br />
+                <%= f.label :having_all_features_of_11, 'スタジオ内喫煙可' %>
               <% if params[:q][:having_all_features_of].blank? %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 12, nil %>
               <% elsif params[:q][:having_all_features_of].include?("12") %>
@@ -143,7 +127,23 @@
               <% else %>
                 <%= f.check_box :having_all_features_of , { multiple: true }, 12, nil %>
               <% end %>
-                <%= f.label :having_all_features_of_12, 'スタジオライブ可' %>
+                <%= f.label :having_all_features_of_12, 'スタジオ内飲食可' %>
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 13, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("13") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 13, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 13, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_13, '生ピアノあり' %><br />
+              <% if params[:q][:having_all_features_of].blank? %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 14, nil %>
+              <% elsif params[:q][:having_all_features_of].include?("14") %>
+                <%= f.check_box :having_all_features_of , { multiple: true, :checked => true }, 14, nil %>
+              <% else %>
+                <%= f.check_box :having_all_features_of , { multiple: true }, 14, nil %>
+              <% end %>
+                <%= f.label :having_all_features_of_14, 'スタジオライブ可' %>
             </td>
           </tr>
           <tr>

@@ -192,83 +192,83 @@
                   </th>
                   <td>
                     <% if @studio.features.pluck(:feature).include?("rec") %>
-                      <input type="checkbox" value="rec" name="studio[features_attributes][0][feature]" id="studio_features_attributes_0_feature" checked="checked" >
+                      <input type="checkbox" value="rec" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="rec" name="studio[features_attributes][0][feature]" id="studio_features_attributes_0_feature" >
+                      <input type="checkbox" value="rec" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_0_feature">レコーディング可</label>
+                      <label for="studio_features_attributes_2_feature">レコーディング可</label>
                     <% if @studio.features.pluck(:feature).include?("near") %>
-                      <input type="checkbox" value="near" name="studio[features_attributes][1][feature]" id="studio_features_attributes_1_feature" checked="checked" >
+                      <input type="checkbox" value="near" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="near" name="studio[features_attributes][1][feature]" id="studio_features_attributes_1_feature" >
+                      <input type="checkbox" value="near" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_1_feature">徒歩5分以内</label>
+                      <label for="studio_features_attributes_3_feature">徒歩5分以内</label>
                     <% if @studio.features.pluck(:feature).include?("parking") %>
-                      <input type="checkbox" value="parking" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature" checked="checked" >
+                      <input type="checkbox" value="parking" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="parking" name="studio[features_attributes][2][feature]" id="studio_features_attributes_2_feature" >
+                      <input type="checkbox" value="parking" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_2_feature">駐車場あり</label><br />
+                      <label for="studio_features_attributes_4_feature">駐車場あり</label><br />
                     <% if @studio.features.pluck(:feature).include?("rental") %>
-                      <input type="checkbox" value="rental" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature" checked="checked" >
+                      <input type="checkbox" value="rental" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="rental" name="studio[features_attributes][3][feature]" id="studio_features_attributes_3_feature" >
+                      <input type="checkbox" value="rental" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_3_feature">レンタルあり</label>
+                      <label for="studio_features_attributes_5_feature">レンタルあり</label>
                     <% if @studio.features.pluck(:feature).include?("pack") %>
-                      <input type="checkbox" value="pack" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature" checked="checked" >
+                      <input type="checkbox" value="pack" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="pack" name="studio[features_attributes][4][feature]" id="studio_features_attributes_4_feature" >
+                      <input type="checkbox" value="pack" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_4_feature">パック料金あり</label>
+                      <label for="studio_features_attributes_6_feature">パック料金あり</label>
                     <% if @studio.features.pluck(:feature).include?("web") %>
-                      <input type="checkbox" value="web" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature" checked="checked" >
+                      <input type="checkbox" value="web" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="web" name="studio[features_attributes][5][feature]" id="studio_features_attributes_5_feature" >
+                      <input type="checkbox" value="web" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_5_feature">Web予約可</label><br />
+                      <label for="studio_features_attributes_7_feature">Web予約可</label><br />
                     <% if @studio.features.pluck(:feature).include?("convenience") %>
-                      <input type="checkbox" value="convenience" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" checked="checked" >
+                      <input type="checkbox" value="convenience" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="convenience" name="studio[features_attributes][6][feature]" id="studio_features_attributes_6_feature" >
+                      <input type="checkbox" value="convenience" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_6_feature">コンビニあり</label>
+                      <label for="studio_features_attributes_8_feature">コンビニあり</label>
                     <% if @studio.features.pluck(:feature).include?("restaurant") %>
-                      <input type="checkbox" value="restaurant" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature" checked="checked" >
+                      <input type="checkbox" value="restaurant" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="restaurant" name="studio[features_attributes][7][feature]" id="studio_features_attributes_7_feature" >
+                      <input type="checkbox" value="restaurant" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_7_feature">飲食店あり</label>
+                      <label for="studio_features_attributes_9_feature">飲食店あり</label>
                     <% if @studio.features.pluck(:feature).include?("break") %>
-                      <input type="checkbox" value="break" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature" checked="checked" >
+                      <input type="checkbox" value="break" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="break" name="studio[features_attributes][8][feature]" id="studio_features_attributes_8_feature" >
+                      <input type="checkbox" value="break" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_8_feature">休憩スペースあり</label><br />
+                      <label for="studio_features_attributes_10_feature">休憩スペースあり</label><br />
                     <% if @studio.features.pluck(:feature).include?("smoking") %>
-                      <input type="checkbox" value="smoking" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature" checked="checked" >
+                      <input type="checkbox" value="smoking" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="smoking" name="studio[features_attributes][9][feature]" id="studio_features_attributes_9_feature" >
+                      <input type="checkbox" value="smoking" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_9_feature">スタジオ内喫煙可</label>
+                      <label for="studio_features_attributes_11_feature">スタジオ内喫煙可</label>
                     <% if @studio.features.pluck(:feature).include?("eating") %>
-                      <input type="checkbox" value="eating" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature" checked="checked" >
+                      <input type="checkbox" value="eating" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="eating" name="studio[features_attributes][10][feature]" id="studio_features_attributes_10_feature" >
+                      <input type="checkbox" value="eating" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_10_feature">スタジオ内飲食可</label>
+                      <label for="studio_features_attributes_12_feature">スタジオ内飲食可</label>
                     <% if @studio.features.pluck(:feature).include?("piano") %>
-                      <input type="checkbox" value="piano" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature" checked="checked" >
+                      <input type="checkbox" value="piano" name="studio[features_attributes][13][feature]" id="studio_features_attributes_13_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="piano" name="studio[features_attributes][11][feature]" id="studio_features_attributes_11_feature" >
+                      <input type="checkbox" value="piano" name="studio[features_attributes][13][feature]" id="studio_features_attributes_13_feature" >
                     <% end %>
-                      <label for="studio_features_attributes_11_feature">生ピアノあり</label><br />
+                      <label for="studio_features_attributes_13_feature">生ピアノあり</label><br />
                     <% if @studio.features.pluck(:feature).include?("live") %>
-                      <input type="checkbox" value="live" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature" checked="checked" >
+                      <input type="checkbox" value="live" name="studio[features_attributes][14][feature]" id="studio_features_attributes_14_feature" checked="checked" >
                     <% else %>
-                      <input type="checkbox" value="live" name="studio[features_attributes][12][feature]" id="studio_features_attributes_12_feature" >
+                      <input type="checkbox" value="live" name="studio[features_attributes][14][feature]" id="studio_features_attributes_14_feature" >
                     <% end %>
-                    <label for="studio_features_attributes_12_feature">スタジオライブ可</label>
+                    <label for="studio_features_attributes_14_feature">スタジオライブ可</label>
                   </td>
                 </tr>
                 <tr>
