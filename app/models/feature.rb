@@ -12,6 +12,6 @@
 class Feature < ApplicationRecord
   belongs_to :studio
 
-  enum feature: { rec: 0, near: 1, parking: 2, rental: 3, pack: 4, web: 5, convenience: 6,
-                  restaurant: 7, break: 8, smoking: 9, eating: 10, piano: 11, live: 12}
+  enum feature: { rec: 2, near: 3, parking: 4, rental: 5, pack: 6, web: 7, convenience: 8,
+                  restaurant: 9, break: 10, smoking: 11, eating: 12, piano: 13, live: 14}
 end
