@@ -33,7 +33,7 @@ class Studio < ApplicationRecord
   scope :having_all_features_of, ->(*feature_ids) {
     joins(:features)
       .where("feature IN (?)" ,feature_ids)
-      .group(:studio_id)
+      .group(:id)
       .having("count(*) = ?", feature_ids.count)
   }
 
