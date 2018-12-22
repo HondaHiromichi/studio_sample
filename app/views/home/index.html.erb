@@ -125,7 +125,11 @@
           </thead>
             <% @studios.each do |studio| %>
               <tr>
-                <td class="table-secondary align-middle"><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
+                <% if studio.images.find_by(sequence: '1').image_file_name == "" %>
+                  <td class="table-secondary align-middle"><%= image_tag ("/missing.png"), :size =>'60x60' %></td>
+                <% else %>
+                  <td class="table-secondary align-middle"><%= image_tag studio.images.find_by(sequence: '1').image.url, :size =>'60x60' %></td>
+                <% end %>
                 <td class="table-secondary align-middle"><%= link_to studio.name, home_path(studio), class: "text-dark" %></td>
                 <td class="table-secondary align-middle"><%= studio.station %></td>
                 <td class="table-secondary align-middle"><%= studio.business_hours %></td>
