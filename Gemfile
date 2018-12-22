@@ -97,4 +97,6 @@ gem 'ransack'
 
 group :production do
   gem 'pg'
+
+gem 'aws-sdk', '~> 2.3'
 end
