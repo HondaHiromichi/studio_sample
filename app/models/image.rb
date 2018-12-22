@@ -14,6 +14,7 @@ class Image < ApplicationRecord
   belongs_to :studio, optional: true
 
   has_attached_file :image,
+                    :path => ":attachment/:id/:style.:extension",
                     styles: { medium: '300*300>', thumb: '100*100>' },
                     # path: "#{Rails.root}/app/assets/images/:filename",
                     # path: "#{Rails.root}/public/:filename",
