@@ -64,7 +64,7 @@
                         <%= f.submit "更新", class: "btn btn-primary" %>
                       </div>
                     <% end %>
-                      <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-5" %></p>
+                      <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "アカウントを削除してもよろしいですか？" }, method: :delete, class: "btn btn-danger mb-5" %></p>
 
                       <%= link_to "戻る", :back, class: "text-secondary" %>
 
@@ -109,7 +109,7 @@
                         </div>
                       <% end %>
 
-                      <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-5" %></p>
+                      <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "アカウントを削除してもよろしいですか？" }, method: :delete, class: "btn btn-danger mb-5" %></p>
 
                       <%= link_to "戻る", :back, class: "text-secondary"%>
 
