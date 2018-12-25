@@ -75,7 +75,7 @@
           </table>
           <div class="card" >
             <div class="card-body">
-              <%= @studio.information %>
+              <%= simple_format(@studio.information) %>
             </div>
           </div>
         </div>
@@ -193,7 +193,7 @@
                   周辺情報:
                 </th>
                 <td>
-                  <%= @studio.sorroundings %>
+                  <%= simple_format(@studio.sorroundings) %>
                 </td>
               </tr>
               <tr>
@@ -201,7 +201,7 @@
                   備考:
                 </th>
                 <td>
-                  <%= @studio.etc %>
+                  <%= simple_format(@studio.etc) %>
                 </td>
               </tr>
             </table>
